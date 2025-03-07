@@ -27,33 +27,32 @@ router.beforeEach((to, from, next) => {
     }
 
     if(!loaderEnabled) {
-        _resetScroll()
         next()
         return
     }
 
     loaderActive.value = true
     const isDifferentRoute = from && to && from.path !== to.path
-    if(isDifferentRoute) {
-        loaderPageRefreshCount.value++
-        loaderSmoothTransitionEnabled.value = true
-    }
-    else {
-        loaderSmoothTransitionEnabled.value = false
-    }
+    const isDifferentRouteName = from && to && from.name !== to.name
+
+    loaderPageRefreshCount.value = isDifferentRouteName ?
+        loaderPageRefreshCount.value + 1 :
+        loaderPageRefreshCount.value
+
+    loaderSmoothTransitionEnabled.value = isDifferentRoute
 
     setTimeout(() => {
-        _resetScroll()
         next()
     }, 350)
 })
 
-const _resetScroll = () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "instant"
-    })
-}
+router.afterEach((to, from) => {
+    const isDifferentRoute = from && to && from.path !== to.path
+    if(!isDifferentRoute)
+        return
+
+    window.scrollTo({top: 0, behavior: "smooth"})
+})
 
 const _onProjectModalClosed = () => {
     projectModalTarget.value = null

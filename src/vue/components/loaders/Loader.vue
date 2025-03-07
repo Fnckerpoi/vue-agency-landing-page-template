@@ -178,6 +178,7 @@ const _onLoadingComplete = () => {
 const _executeLeavingStep = () => {
     currentStep.value = Steps.LEAVING
     layout.setBodyScrollEnabled(true)
+    window.scrollTo({top: 0, behavior: "instant"})
     scheduler.schedule(() => {
         emit('completed')
     }, 900, schedulerTag)
