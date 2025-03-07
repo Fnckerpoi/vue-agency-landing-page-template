@@ -4,7 +4,7 @@
 
     <Loader v-if="loaderEnabled"
             :visible="Boolean(loaderActive)"
-            :refresh-count="loaderPageRefreshCount"
+            :refresh-count="Number(loaderPageRefreshCount)"
             :smooth-transition-enabled="Boolean(loaderSmoothTransitionEnabled)"
             @mounted="_onLoaderMounted"
             @completed="_onLoaderCompleted"/>

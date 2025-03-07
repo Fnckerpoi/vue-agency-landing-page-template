@@ -33,8 +33,15 @@ router.beforeEach((to, from, next) => {
     }
 
     loaderActive.value = true
-    loaderPageRefreshCount.value = loaderPageRefreshCount.value + 1
-    loaderSmoothTransitionEnabled.value = from && to && from.path !== to.path
+    const isDifferentRoute = from && to && from.path !== to.path
+    if(isDifferentRoute) {
+        loaderPageRefreshCount.value++
+        loaderSmoothTransitionEnabled.value = true
+    }
+    else {
+        loaderSmoothTransitionEnabled.value = false
+    }
+
     setTimeout(() => {
         _resetScroll()
         next()
