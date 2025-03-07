@@ -1,16 +1,16 @@
 <template>
-    <div class="item-faq-question mb-4 pe-3">
+    <div class="foxy-item-faq-question mb-4 pe-3">
         <!-- Question Icon -->
         <div class="flex-shrink-0 pe-1 ps-1">
             <i class="fa fa-question-circle text-primary question-icon eq-h4"/>
         </div>
 
         <!-- Question Content -->
-        <div class="item-faq-question-content ms-3">
-            <h5 class="item-faq-question-title"
+        <div class="foxy-item-faq-question-content ms-3">
+            <h5 class="foxy-item-faq-question-title"
                 v-html="parsedQuestion"/>
 
-            <p class="item-faq-question-answer text-2 text-muted"
+            <p class="foxy-item-faq-question-answer text-2 text-muted"
                v-html="parsedAnswer"/>
         </div>
     </div>
@@ -28,22 +28,22 @@ const props = defineProps({
 })
 
 const parsedQuestion = computed(() => {
-    return utils.parseTitle(props.question)
+    return utils.parseCustomText(props.question)
 })
 
 const parsedAnswer = computed(() => {
-    return utils.parseTitle(props.answer)
+    return utils.parseCustomText(props.answer)
 })
 </script>
 
 <style lang="scss" scoped>
 @import "/src/scss/_theming.scss";
 
-div.item-faq-question {
+div.foxy-item-faq-question {
     display: flex;
 }
 
-p.item-faq-question-answer {
+p.foxy-item-faq-question-answer {
     text-align: justify;
 }
 </style>

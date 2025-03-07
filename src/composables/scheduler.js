@@ -2,7 +2,6 @@
  * Created by Ryan Balieiro on 03.05.2025
  * Bulk manager for timeouts and intervals.
  */
-
 const timeouts = []
 const intervals = []
 

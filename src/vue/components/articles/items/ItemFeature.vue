@@ -1,11 +1,11 @@
 <template>
-    <div class="item-feature col-12 col-sm-6 col-lg-4">
-        <div class="item-feature-content mb-lg-4">
-            <div class="item-feature-icon-wrapper">
+    <div class="foxy-item-feature col-12 col-sm-6 col-lg-4">
+        <div class="foxy-item-feature-content mb-lg-4">
+            <div class="foxy-item-feature-icon-wrapper">
                 <CircleIcon :fa-icon="faIcon"/>
             </div>
 
-            <div class="item-feature-content-wrapper">
+            <div class="foxy-item-feature-content-wrapper">
                 <h5 v-html="parsedTitle"/>
 
                 <p class="text-muted text-4 mb-0"
@@ -29,18 +29,18 @@ const props = defineProps({
 })
 
 const parsedTitle = computed(() => {
-    return utils.parseTitle(props.title)
+    return utils.parseCustomText(props.title)
 })
 
 const parsedDescription = computed(() => {
-    return utils.parseTitle(props.description)
+    return utils.parseCustomText(props.description)
 })
 </script>
 
 <style lang="scss" scoped>
 @import "/src/scss/_theming.scss";
 
-div.item-feature-content {
+div.foxy-item-feature-content {
     @include generate-dynamic-styles-with-hash((
         xxxl: (flex-direction: column, padding: 0 1rem),
         lg:   (flex-direction: row, text-align:left, padding: 0 0.5rem),
@@ -50,7 +50,7 @@ div.item-feature-content {
     display: flex;
 }
 
-div.item-feature-content-wrapper {
+div.foxy-item-feature-content-wrapper {
     @include generate-dynamic-styles-with-hash((
         xxxl: (margin-top: 1rem),
         lg:   (margin-top: 0, margin-left: 1rem),

@@ -15,7 +15,7 @@
         <!-- Content -->
         <div class="article-content">
             <p v-for="paragraph in description"
-               v-html="utils.parseTitle(paragraph)"
+               v-html="utils.parseCustomText(paragraph)"
                class="text-3"/>
         </div>
     </article>
@@ -34,7 +34,7 @@ const props = defineProps({
 })
 
 const parsedTitle = computed(() => {
-    return utils.parseTitle(props.title)
+    return utils.parseCustomText(props.title)
 })
 </script>
 

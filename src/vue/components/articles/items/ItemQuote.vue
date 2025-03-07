@@ -50,11 +50,11 @@ const props = defineProps({
 })
 
 const parsedTitle = computed(() => {
-    return utils.parseTitle(props.title)
+    return utils.parseCustomText(props.title)
 })
 
 const parsedQuote = computed(() => {
-    return utils.parseTitle(props.quote)
+    return utils.parseCustomText(props.quote)
 })
 </script>
 

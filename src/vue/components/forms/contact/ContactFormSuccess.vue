@@ -1,17 +1,17 @@
 <template>
-    <div class="contact-form-success">
-        <div class="contact-form-success-icon-wrapper display-3">
+    <div class="foxy-contact-form-success">
+        <div class="foxy-contact-form-success-icon-wrapper display-3">
             <i class="fa-solid fa-envelope-circle-check"/>
         </div>
 
-        <div class="contact-form-success-content-wrapper mt-2">
-            <h3 v-html="utils.parseTitle(strings.get('contact_thank_you'))"/>
+        <div class="foxy-contact-form-success-content-wrapper mt-2">
+            <h3 v-html="utils.parseCustomText(strings.get('contact_thank_you'))"/>
 
             <p class="text-4 mt-4 mb-3"
-               v-html="utils.parseTitle(strings.get('contact_thank_you_description'))"/>
+               v-html="utils.parseCustomText(strings.get('contact_thank_you_description'))"/>
 
             <p class="text-4"
-               v-html="utils.parseTitle(strings.get('contact_thank_you_reply').replaceAll('{email}', props.email))"/>
+               v-html="utils.parseCustomText(strings.get('contact_thank_you_reply').replaceAll('{email}', props.email))"/>
         </div>
     </div>
 </template>
@@ -32,7 +32,7 @@ const props = defineProps({
 <style lang="scss" scoped>
 @import "/src/scss/_theming.scss";
 
-div.contact-form-success {
+div.foxy-contact-form-success {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,7 +42,7 @@ div.contact-form-success {
     border-radius: 10px;
 }
 
-div.contact-form-success-content-wrapper {
+div.foxy-contact-form-success-content-wrapper {
     text-align: center;
 
     h3 {

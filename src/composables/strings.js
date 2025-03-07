@@ -1,7 +1,6 @@
 /**
  * Created by Ryan Balieiro on 03.01.2025
  */
-
 const MAP = {
     "about": "About",
     "all_categories": "All",

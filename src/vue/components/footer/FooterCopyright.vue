@@ -1,5 +1,6 @@
 <template>
-    <p class="text-1 p-0 m-0" v-html="formattedCopyright"/>
+    <p class="foxy-footer-copyright text-1"
+       v-html="formattedCopyright"/>
 </template>
 
 <script setup>
@@ -29,5 +30,7 @@ const formattedCopyright = computed(() => {
 
 p {
     color: $light-5;
+    padding: 0;
+    margin: 0;
 }
 </style>

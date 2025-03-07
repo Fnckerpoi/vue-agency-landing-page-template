@@ -1,6 +1,6 @@
 <template>
     <nav class="foxy-navbar"
-         :class="shouldExpand ? `foxy-navbar-expanded` : ``">
+         :class="shouldExpand ? `foxy-navbar-expanded` : `foxy-navbar-compressed`">
         <div class="foxy-navbar-container container-xxl">
             <Link :url="brandUrl">
                 <NavbarBrand :logo="brandLogo"

@@ -1,7 +1,6 @@
 /**
  * Created by Ryan Balieiro on 03.02.2025
  */
-
 export function useSettings() {
     /**
      * @return {boolean}

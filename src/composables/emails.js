@@ -16,6 +16,13 @@ export const useEmails = () => {
         emailjs.init(credentials.publicKey)
     }
 
+    /**
+     * @param {String} fromName
+     * @param {String} fromEmail
+     * @param {String} customSubject
+     * @param {String} message
+     * @return {Promise<boolean>}
+     */
     const sendContact = async (fromName, fromEmail, customSubject, message) => {
         const params = {
             from_name: fromName,

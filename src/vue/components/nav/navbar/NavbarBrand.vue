@@ -28,7 +28,7 @@ const props = defineProps({
 })
 
 const parsedLabel = computed(() => {
-    return utils.parseTitle(props.label)
+    return utils.parseCustomText(props.label)
 })
 </script>
 

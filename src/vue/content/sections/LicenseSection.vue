@@ -4,7 +4,7 @@
                  :id="props.id">
         <Breadcrumbs/>
 
-        <PageSectionHeader title="Template *License*"
+        <PageSectionHeader title="Usage *License*"
                            subtitle="Terms and Attributions"/>
 
         <PageSectionContent>

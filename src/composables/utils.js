@@ -69,7 +69,7 @@ export function useUtils() {
      * @param {String} title
      * @return {String}
      */
-    const parseTitle = (title) => {
+    const parseCustomText = (title) => {
         if(!title)
             return ``
         return title.replace(/\*(.*?)\*/g, '<span class="text-primary">$1</span>')
@@ -82,6 +82,6 @@ export function useUtils() {
         isStringAnImageUrl,
         isTouchDevice,
         isValidEmail,
-        parseTitle
+        parseCustomText
     }
 }

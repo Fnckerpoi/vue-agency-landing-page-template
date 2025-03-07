@@ -135,6 +135,7 @@ const _executeWaitingForCompletionStep = () => {
     currentStep.value = Steps.WAITING_FOR_COMPLETION
 
     let dt = 0
+    const step = 1000 / 30
     scheduler.interval(() => {
         const imageElements = document.querySelectorAll(".image")
         const imageLoadProgress = {loaded: 0, total: 0}
@@ -144,9 +145,9 @@ const _executeWaitingForCompletionStep = () => {
                 imageLoadProgress.loaded++
         })
 
-        dt += 1000/30
+        dt += step
 
-        const percentageFromDt = dt*100/300
+        const percentageFromDt = dt*step/100
         const percentageFromProgress = imageLoadProgress.total ?
             imageLoadProgress.loaded*100/imageLoadProgress.total :
             0
@@ -155,7 +156,7 @@ const _executeWaitingForCompletionStep = () => {
         if(percentage.value >= 100 || dt > 5000) {
             _onLoadingComplete()
         }
-    }, 1000/30, schedulerTag)
+    }, step, schedulerTag)
 }
 
 const _onLoadingComplete = () => {

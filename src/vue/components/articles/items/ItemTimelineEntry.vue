@@ -51,11 +51,11 @@ const props = defineProps({
 })
 
 const parsedTitle = computed(() => {
-    return utils.parseTitle(props.title)
+    return utils.parseCustomText(props.title)
 })
 
 const parsedDescription = computed(() => {
-    return utils.parseTitle(props.description)
+    return utils.parseCustomText(props.description)
 })
 </script>
 

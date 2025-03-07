@@ -54,9 +54,11 @@ export function useLayout() {
      * @return {boolean}
      */
     const scrollIntoView = (element) => {
-        const navbarHeight = 68
+        const elNavbar = document.querySelector('.foxy-navbar-compressed')
+        const navOffset = elNavbar ? elNavbar.getBoundingClientRect().height - 2 : 70
+
         const elementPosition = element.getBoundingClientRect().top + window.scrollY
-        const offsetPosition = elementPosition - navbarHeight
+        const offsetPosition = elementPosition - navOffset
 
         window.scrollTo({
             top: offsetPosition,
