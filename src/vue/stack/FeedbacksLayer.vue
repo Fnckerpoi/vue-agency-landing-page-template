@@ -4,6 +4,7 @@
 
     <Loader v-if="loaderEnabled"
             :visible="Boolean(loaderActive)"
+            :refresh-count="loaderPageRefreshCount"
             :smooth-transition-enabled="Boolean(loaderSmoothTransitionEnabled)"
             @mounted="_onLoaderMounted"
             @completed="_onLoaderCompleted"/>
@@ -18,6 +19,7 @@ import Loader from "/src/vue/components/loaders/Loader.vue"
 
 const loaderEnabled = inject("loaderEnabled")
 const loaderActive = inject("loaderActive")
+const loaderPageRefreshCount = inject("loaderPageRefreshCount")
 const loaderSmoothTransitionEnabled = inject("loaderSmoothTransitionEnabled")
 const spinnerActive = inject("spinnerActive")
 const spinnerMessage = inject("spinnerMessage")

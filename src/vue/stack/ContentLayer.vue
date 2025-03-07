@@ -16,6 +16,7 @@ const router = useRouter()
 
 const loaderEnabled = inject("loaderEnabled")
 const loaderActive = inject("loaderActive")
+const loaderPageRefreshCount = inject("loaderPageRefreshCount")
 const loaderSmoothTransitionEnabled = inject("loaderSmoothTransitionEnabled")
 const projectModalTarget = inject("projectModalTarget")
 
@@ -32,6 +33,7 @@ router.beforeEach((to, from, next) => {
     }
 
     loaderActive.value = true
+    loaderPageRefreshCount.value = loaderPageRefreshCount.value + 1
     loaderSmoothTransitionEnabled.value = from && to && from.path !== to.path
     setTimeout(() => {
         _resetScroll()

@@ -20,7 +20,8 @@
 
             <div class="foxy-loader-progress-display"
                  :class="{
-                    'foxy-loader-progress-display-hidden': currentStep <  Steps.ANIMATING_PROGRESS
+                    'foxy-loader-progress-display-hidden': currentStep <  Steps.ANIMATING_PROGRESS,
+                    'transition-none': currentStep < Steps.ANIMATING_PROGRESS
                  }">
                 <p class="percentage text-2"
                    v-html="`${percentage}%`"/>
@@ -46,6 +47,7 @@ const scheduler = useScheduler()
 
 const props = defineProps({
     visible: Boolean,
+    refreshCount: Number,
     smoothTransitionEnabled: Boolean
 })
 
@@ -76,6 +78,13 @@ onMounted(() => {
 watch(() => props.visible, () => {
     scheduler.clearAllWithTag(schedulerTag)
     _performTransition()
+})
+
+watch(() => props.refreshCount, () => {
+    scheduler.clearAllWithTag(schedulerTag)
+    percentage.value = 0
+    currentStep.value = Steps.NONE
+    _executeAnimatingLogoStep()
 })
 
 const _onLogoLoaded = () => {
@@ -245,6 +254,10 @@ div.foxy-loader-progress-display {
         max-width: 55px;
         margin: 0 auto;
     }
+}
+
+div.transition-none {
+    transition: none!important;
 }
 
 @keyframes popIn {
