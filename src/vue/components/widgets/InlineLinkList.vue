@@ -104,7 +104,7 @@ li.inline-link-list-header {
         min-width: 25px;
         color: $light-5;
         @include media-breakpoint-down(md) {
-            min-width: 0;
+            min-width: 20px;
         }
     }
 }

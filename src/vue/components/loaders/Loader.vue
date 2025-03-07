@@ -146,6 +146,10 @@ const _executeWaitingForCompletionStep = () => {
     let dt = 0
     const step = 1000 / 30
     scheduler.interval(() => {
+        const isPageLoaded = Boolean(document.querySelector('.foxy-page-wrapper'))
+        if(!isPageLoaded)
+            return
+
         const imageElements = document.querySelectorAll(".image")
         const imageLoadProgress = {loaded: 0, total: 0}
         Array.from(imageElements).map(item => {

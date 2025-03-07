@@ -43,7 +43,7 @@ router.beforeEach((to, from, next) => {
 
     setTimeout(() => {
         next()
-    }, 350)
+    }, 850)
 })
 
 router.afterEach((to, from) => {
