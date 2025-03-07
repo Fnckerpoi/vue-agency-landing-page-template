@@ -1,7 +1,7 @@
 {
-  "name": "agency-template",
+  "name": "foxy-template",
   "private": true,
-  "version": "1.0.3",
+  "version": "2.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,9 +10,11 @@
     "ghdeploy": "vite build && cd dist && cp index.html 404.html"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@fortawesome/fontawesome-free": "^6.4.0",
     "@popperjs/core": "^2.11.7",
     "bootstrap": "^5.2.3",
+    "emailjs": "^4.0.3",
     "swiper": "^10.0.4",
     "vue": "^3.2.47",
     "vue-router": "^4.2.4"

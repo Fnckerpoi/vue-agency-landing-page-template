@@ -1,13 +1,42 @@
+/** ------------ BODY ----------------- **/
+html {
+    scroll-padding-top: $navbar-height;
+}
+
 body {
     background-color: $dark;
 }
 
-.no-scroll {
+body.body-no-scroll {
     overflow-y: hidden!important;
-    position: fixed;
-    width: 100%;
+    @include media-breakpoint-down(lg) {
+        position: fixed!important;
+    }
 }
 
+/** ----------- SELECTION ------------- **/
+::-moz-selection {
+    color: $dark;
+    background: $primary;
+}
+
+::selection {
+    color: $dark;
+    background: lighten($primary, 30%);
+}
+
+/** ----------- SCROLLBAR -------------- **/
+::-webkit-scrollbar {max-width: 8px; max-height: 4px}
+::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)}
+::-webkit-scrollbar-thumb {background: lighten($dark, 30%);-webkit-box-shadow: rgba(155,155,155)}
+::-webkit-scrollbar-thumb:window-inactive {background: lighten($dark, 10%);}
+
+/** ----------- SHADOWS ---------------- **/
+.trace-shadow {
+    box-shadow: rgba(0, 0, 0, 0.1) 5px 5px, rgba(10, 10, 10, 0.15) 10px 10px;
+}
+
+/** -------- BOOTSTRAP COMPONENTS ------ **/
 .container-xxl {
     @include generate-dynamic-styles-with-hash((
         xxxl:(padding: 0),
@@ -23,51 +52,33 @@ body {
     }
 }
 
-.bg-promo-image {
+/** ------------- SWIPER ------------------ **/
+div.swiper-pagination {
+    display: flex;
+    justify-content: center;
     position: absolute;
-    height: calc(100% + 4rem);
-    width: 100%;
-    z-index: -1;
-
-    background-image: url('../assets/header-bg.jpeg');
-    background-position: center;
-    background-size: cover;
-
-
-    .bg-promo-image-overlay {
-        position: relative;
-        height: 100%;
-        width: 100%;
-
-        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(30, 30, 30, 0.73)), color-stop(70%, rgba(30, 30, 30, 0.86)), color-stop(80%, rgba(30, 30, 30, 0.99)), to(rgba(30, 30, 30, 1)));
-        background-image: linear-gradient(180deg, rgba(30, 30, 30, 0.73) 0%, rgba(30, 30, 30, 0.86) 30%, rgba(30, 30, 30, 0.99) 60%, rgba(30, 30, 30, 1) 100%);
-    }
-
-    .bg-promo-image-overlay-faded {
-        position: relative;
-        height: 100%;
-        width: 100%;
-
-        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(30, 30, 30, 0.83)), color-stop(70%, rgba(30, 30, 30, 0.93)), color-stop(80%, rgba(30, 30, 30, 1)), to(rgba(30, 30, 30, 1)));
-        background-image: linear-gradient(180deg, rgba(30, 30, 30, 0.83) 0%, rgba(30, 30, 30, 0.93) 30%, rgba(30, 30, 30, 0.99) 60%, rgba(30, 30, 30, 1) 100%);
-    }
+    bottom: 10px!important;
 }
 
-.trace-shadow {
-    box-shadow: rgba(0, 0, 0, 0.1) 5px 5px, rgba(10, 10, 10, 0.15) 10px 10px;
+span.swiper-pagination-bullet {
+    display: flex;
+
+    width: 15px;
+    height: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    pointer-events: auto;
+
+    opacity: 1;
+    background-color: rgba(black, 0.2);
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, width 0.2s ease-in-out;
 }
 
-::-moz-selection {
-    color: $dark;
-    background: $primary;
+span.swiper-pagination-bullet:hover {
+    background-color: rgba(black, 0.5);
 }
 
-::selection {
-    color: $dark;
-    background: lighten($primary, 30%);
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    width: 30px;
+    background-color: $primary;
 }
-
-::-webkit-scrollbar {max-width: 8px; max-height: 4px}
-::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)}
-::-webkit-scrollbar-thumb {background: lighten($dark, 30%);-webkit-box-shadow: rgba(155,155,155)}
-::-webkit-scrollbar-thumb:window-inactive {background: lighten($dark, 10%);}

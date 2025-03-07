@@ -2,71 +2,35 @@
  * Created by Ryan Balieiro on 08.26.2023
  * This composable will implement helper methods that manipulate DOM elements.
  */
-import {useConstants} from "./constants.js"
+import {useUtils} from "/src/composables/utils.js"
 
-const constants = useConstants()
-
-/**
- * @type {Ref<any>|null}
- * @private
- */
-let _feedbackView = null
+const utils = useUtils()
 
 export function useLayout() {
     /**
-     * @param {String} breakpoint
-     * @return {boolean}
-     */
-    const isBootstrapBreakpoint = (breakpoint) => {
-        return window.innerWidth >= constants.BOOTSTRAP_BREAKPOINTS[breakpoint]
-    }
-
-    /**
-     * @return {string}
-     */
-    const getBootstrapBreakpoint = () => {
-        const windowWidth = window.innerWidth
-        let windowBreakpoint = ''
-
-        for (const breakpoint in constants.BOOTSTRAP_BREAKPOINTS) {
-            if (windowWidth >= constants.BOOTSTRAP_BREAKPOINTS[breakpoint]) {
-                windowBreakpoint = breakpoint
-            }
-        }
-
-        return windowBreakpoint
-    }
-
-    /**
-     * @param {Ref<any>|null} feedbackView
-     */
-    const setFeedbackView = (feedbackView) => {
-        _feedbackView = feedbackView
-    }
-
-    /**
-     * @return {*}
-     */
-    const getFeedbackView = () => {
-        if(_feedbackView) {
-            return _feedbackView.value
-        }
-
-        return null
-    }
-
-    /**
      * @param {Boolean} enabled
      */
-    const setPageScrollingEnabled = (enabled) => {
-        const root = document.getElementsByTagName( 'html' )[0]
+    const setBodyScrollEnabled = (enabled) => {
+        const body = document.body
+
         if(!enabled) {
-            document.body.className = constants.HTML_CLASSES.bodyNoScroll
-            root.className += ' ' + constants.HTML_CLASSES.bodyNoScroll
+            window.savedScrollY = window.scrollY
+            body.classList.add(`body-no-scroll`)
+            if(utils.isIOS()) {
+                body.classList.add(`position-fixed`)
+            }
         }
         else {
-            document.body.className = constants.HTML_CLASSES.bodyScroll
-            root.className = ''
+            body.classList.remove(`body-no-scroll`)
+            body.classList.remove(`position-fixed`)
+
+            if(window.savedScrollY) {
+                window.scrollTo({
+                    top: window.savedScrollY,
+                    behavior: "instant"
+                })
+                window.savedScrollY = null
+            }
         }
     }
 
@@ -86,82 +50,23 @@ export function useLayout() {
     }
 
     /**
-     * @return {{loaded: number, total: number}}
+     * @param {HTMLElement} element
+     * @return {boolean}
      */
-    const getImageCount = () => {
-        const imageElements = document.querySelectorAll('.' + constants.HTML_CLASSES.imageViewImage)
-        let totalImages = 0
+    const scrollIntoView = (element) => {
+        const navbarHeight = 68
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY
+        const offsetPosition = elementPosition - navbarHeight
 
-        const loadedImages = Array.from(imageElements).reduce((count, image) => {
-            if(!image.classList.contains(constants.HTML_CLASSES.imageViewImageIgnoredOnCount)) {
-                totalImages++
-                if (image.getAttribute('loadStatus') !== constants.LoadStatus.LOADING)
-                    return count + 1
-            }
-            return count
-        }, 0)
-
-        return {loaded: loadedImages, total: totalImages }
-    }
-
-    /**
-     * @param {String} elementId
-     * @param {Boolean} withTimeout
-     */
-    const smoothScrollToElement = (elementId, withTimeout) => {
-        const el = document.querySelector('#' + elementId)
-        if(!el) {
-            console.warn("Trying to scroll to an invalid element with id: " + elementId)
-            return
-        }
-
-        const closure = () => {
-            const offsetTop = el.offsetTop
-            const navbarHeight = document.querySelector('#navbar').offsetHeight
-            scroll({
-                top: offsetTop - Math.min(navbarHeight, isBootstrapBreakpoint('sm') ? 70 : 60),
-                behavior: "smooth"
-            })
-        }
-
-        if(withTimeout) {
-            setTimeout(closure, 100)
-        }
-        else {
-            closure()
-        }
-    }
-
-    /**
-     * @param {Number} scrollY
-     * @param {Boolean} withTimeout
-     */
-    const instantScrollTo = (scrollY, withTimeout) => {
-        const closure = () => {
-            window.scrollTo({
-                top: scrollY ?? 0,
-                left: 0,
-                behavior: 'instant'
-            })
-        }
-
-        if(withTimeout) {
-            setTimeout(closure, 10)
-        }
-        else {
-            closure()
-        }
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
     }
 
     return {
-        isBootstrapBreakpoint,
-        getBootstrapBreakpoint,
-        setFeedbackView,
-        getFeedbackView,
-        getImageCount,
+        setBodyScrollEnabled,
         isElementOutsideBounds,
-        setPageScrollingEnabled,
-        smoothScrollToElement,
-        instantScrollTo
+        scrollIntoView
     }
 }

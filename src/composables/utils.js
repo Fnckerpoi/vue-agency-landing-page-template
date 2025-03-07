@@ -4,6 +4,18 @@
  */
 export function useUtils() {
     /**
+     * @type {{xl: number, md: number, sm: number, xs: number, lg: number, xxl: number}}
+     */
+    const BOOTSTRAP_BREAKPOINTS = {
+        xs: 0,
+        sm: 576,
+        md: 768,
+        lg: 992,
+        xl: 1200,
+        xxl: 1400,
+    }
+
+    /**
      * @param {Number} value
      * @param {Number} min
      * @param {Number} max
@@ -14,6 +26,14 @@ export function useUtils() {
             return min
 
         return Math.min(Math.max(value, min), max)
+    }
+
+    /**
+     * @return {boolean}
+     */
+    const isIOS = () => {
+        const userAgent = window.navigator.userAgent.toLowerCase()
+        return /iphone|ipad|ipod/.test(userAgent)
     }
 
     /**
@@ -33,9 +53,35 @@ export function useUtils() {
             (navigator.msMaxTouchPoints > 0))
     }
 
+    /**
+     * @param {String} string
+     * @return {boolean}
+     */
+    const isValidEmail = (string) => {
+        return Boolean(String(string)
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            ))
+    }
+
+    /**
+     * @param {String} title
+     * @return {String}
+     */
+    const parseTitle = (title) => {
+        if(!title)
+            return ``
+        return title.replace(/\*(.*?)\*/g, '<span class="text-primary">$1</span>')
+    }
+
     return {
+        BOOTSTRAP_BREAKPOINTS,
         clamp,
+        isIOS,
         isStringAnImageUrl,
-        isTouchDevice
+        isTouchDevice,
+        isValidEmail,
+        parseTitle
     }
 }
