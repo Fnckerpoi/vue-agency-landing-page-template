@@ -193,7 +193,7 @@ const _incrementDisplayPercentage = (currentPercentage) => {
     const smootheningPercentageIncrement = diff > 16 ? 16 : Math.round(diff)
     percentage.value += smootheningPercentageIncrement
     percentage.value = utils.clamp(percentage.value, 0, 100)
-    if(percentage.value === 100 || loadingTimeAfterRendering.value >= 5000) {
+    if(percentage.value === 100 || loadingTimeAfterRendering.value >= 8000) {
         _onLoadingComplete()
     }
 }

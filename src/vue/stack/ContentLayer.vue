@@ -1,6 +1,6 @@
 <template>
     <!-- Main Content -->
-    <slot/>
+    <slot v-if="!isLoaderAnimating"/>
 
     <!-- Modals -->
     <ProjectModal :project="projectModalTarget"
@@ -19,6 +19,7 @@ const loaderActive = inject("loaderActive")
 const loaderPageRefreshCount = inject("loaderPageRefreshCount")
 const loaderSmoothTransitionEnabled = inject("loaderSmoothTransitionEnabled")
 const projectModalTarget = inject("projectModalTarget")
+const isLoaderAnimating = inject("isLoaderAnimating")
 
 router.beforeEach((to, from, next) => {
     if(from.name === to.name) {

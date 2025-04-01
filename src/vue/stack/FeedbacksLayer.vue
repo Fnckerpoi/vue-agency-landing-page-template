@@ -6,14 +6,15 @@
             :visible="Boolean(loaderActive)"
             :refresh-count="Number(loaderPageRefreshCount)"
             :smooth-transition-enabled="Boolean(loaderSmoothTransitionEnabled)"
-            @ready="_onLoaderMounted"
+            @rendered="_onLoaderRendered"
+            @ready="_onLoaderReady"
             @completed="_onLoaderCompleted"/>
 
-    <slot v-if="didMountPreloader"/>
+    <slot v-if="isReady"/>
 </template>
 
 <script setup>
-import {inject, ref} from "vue"
+import {inject, provide, ref} from "vue"
 import ActivitySpinner from "/src/vue/components/loaders/ActivitySpinner.vue"
 import Loader from "/src/vue/components/loaders/Loader.vue"
 
@@ -24,15 +25,23 @@ const loaderSmoothTransitionEnabled = inject("loaderSmoothTransitionEnabled")
 const spinnerActive = inject("spinnerActive")
 const spinnerMessage = inject("spinnerMessage")
 
-const didMountPreloader = ref(!loaderEnabled)
+const isReady = ref(!loaderEnabled)
+const isLoaderAnimating = ref(loaderEnabled)
 
-const _onLoaderMounted = () => {
-    didMountPreloader.value = true
+const _onLoaderRendered = () => {
+    isLoaderAnimating.value = true
+}
+
+const _onLoaderReady = () => {
+    isReady.value = true
+    isLoaderAnimating.value = false
 }
 
 const _onLoaderCompleted = () => {
     loaderActive.value = false
 }
+
+provide("isLoaderAnimating", isLoaderAnimating)
 </script>
 
 <style lang="scss" scoped>
