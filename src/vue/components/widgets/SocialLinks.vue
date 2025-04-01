@@ -113,7 +113,7 @@ a.social-link-size-3 {
 a.social-link-size-4 {
     @include create-btn-social-size(1.8rem, 1.6rem);
     .social-link-tooltip {
-        margin-top: -7rem;
+        margin-top: -7.5rem;
     }
 }
 
@@ -149,7 +149,6 @@ div.social-link-tooltip {
     position: absolute;
     text-transform: capitalize;
     background-color: darken($primary, 10%);
-    font-weight: bold;
     color:$text-normal-contrast;
     padding: 0.2rem 0.6rem;
     border-radius: 10px;

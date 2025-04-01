@@ -19,9 +19,10 @@
                     v-html="parsedTitle"/>
 
                 <!-- Date -->
-                <span v-if="date" class="badge bg-light text-dark text-2 mb-3 mt-1">
-                    <i class="fa fa-calendar-check me-1"/>
-                    {{ props.date }}
+                <span v-if="date"
+                      class="badge bg-light text-dark text-2 mb-2 mb-xxl-3 mt-1">
+                    <i class="fa-regular fa-calendar me-2"/>
+                    <span v-html="date"/>
                 </span>
             </div>
 
@@ -43,7 +44,8 @@ const utils = useUtils()
 
 const props = defineProps({
     title: String,
-    date: String,
+    dateStart: String,
+    dateEnd: String,
     image: String,
     description: String,
     inverted: Boolean,
@@ -56,6 +58,13 @@ const parsedTitle = computed(() => {
 
 const parsedDescription = computed(() => {
     return utils.parseCustomText(props.description)
+})
+
+const date = computed(() => {
+    if(!props.dateEnd)
+        return props.dateStart
+
+    return `${props.dateStart} <i class="fa-solid fa-arrow-right-long mx-1" style="font-size: 12px"></i> ${props.dateEnd}`
 })
 </script>
 

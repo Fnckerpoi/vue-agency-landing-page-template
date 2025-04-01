@@ -10,14 +10,14 @@
                 v-html="parsedTitle"/>
         </div>
 
-        <div class="card-body text-4">
+        <div class="card-body text-3">
             <i class="fa fa-quote-left me-2 text-primary"/>
             <span v-html="parsedQuote"/>
             <i class="fa fa-quote-right ms-2 text-primary"/>
         </div>
 
         <div class="card-footer">
-            <p class="foxy-testimonial-author text-3 fw-bold">
+            <p class="foxy-testimonial-author text-3">
                 <span class="text-primary me-2">—</span>
 
                 <span v-html="parsedAuthor"/>

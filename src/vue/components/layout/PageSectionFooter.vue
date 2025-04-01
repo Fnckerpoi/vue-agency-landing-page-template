@@ -3,7 +3,7 @@
         <div class="row">
             <div class="foxy-section-footer-content col-12 col-lg-8">
                 <Divider v-if="includeDivider"
-                         class="mb-3"/>
+                         class="mb-4"/>
 
                 <!-- Title -->
                 <h3 v-html="parsedTitle"/>
@@ -11,7 +11,7 @@
                 <!-- Description -->
                 <p v-if="description"
                    v-html="parsedDescription"
-                   class="mt-4 mb-2 text-4"
+                   class="mt-3 mb-2 text-4"
                    :class="descriptionTextClass"/>
 
                 <!-- Button -->
@@ -62,7 +62,7 @@ div.foxy-section-footer {
         xxl:  (margin-top: 1.5rem),
         lg:   (margin-top: 1.1rem),
         md:   (margin-top: 1.05rem),
-        sm:   (margin-top: 1rem),
+        sm:   (margin-top: 0.75rem),
     ));
 
     text-align: center;

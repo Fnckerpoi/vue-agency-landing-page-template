@@ -11,7 +11,7 @@
             <a v-if="link.isRouterLink"
                :href="link.href"
                target="_blank"
-               class="text-3 inline-link-list-link">
+               class="text-2 inline-link-list-link">
                 <i v-if="link.faIcon"
                    :class="link.faIcon"
                    class="inline-link-list-icon"/>
@@ -20,7 +20,7 @@
 
             <router-link v-else
                          :to="link.href"
-                         class="text-3 inline-link-list-link"
+                         class="text-2 inline-link-list-link"
                          :class="link.classList">
                 <i v-if="link.faIcon"
                    :class="link.faIcon"

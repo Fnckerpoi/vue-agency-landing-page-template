@@ -79,7 +79,10 @@ const _onInputChanged = (e) => {
 @import "/src/scss/_theming.scss";
 
 div.foxy-contact-form-row {
-    --column-spacing: 15px;
+    --column-spacing: 12px;
+    @include media-breakpoint-down(lg) {
+        --column-spacing: 8px;
+    }
 
     div.foxy-contact-form-alert-column {
         padding-bottom: calc(var(--column-spacing) * 1.5);
@@ -89,7 +92,7 @@ div.foxy-contact-form-row {
     }
 
     div.foxy-contact-form-left-column {
-        padding-right: var(--column-spacing);
+        padding-right: calc(var(--column-spacing)/2);
         padding-bottom: calc(var(--column-spacing) * 3);
         @include media-breakpoint-down(lg) {
             padding-right: 0;
@@ -102,7 +105,7 @@ div.foxy-contact-form-row {
         padding-bottom: calc(var(--column-spacing) * 3);
         @include media-breakpoint-down(lg) {
             padding-left: 0;
-            padding-bottom: calc(var(--column-spacing) * 2);
+            padding-bottom: calc(var(--column-spacing) * 3);
         }
     }
 
@@ -139,12 +142,12 @@ input, textarea {
 }
 
 input {
-    height: 60px;
+    height: 70px;
     @include media-breakpoint-down(lg) {
-        height: 55px;
+        height: 60px;
     }
     @include media-breakpoint-down(sm) {
-        height: 45px;
+        height: 50px;
     }
 }
 

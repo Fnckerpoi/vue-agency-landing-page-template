@@ -22,13 +22,18 @@ const projectModalTarget = inject("projectModalTarget")
 const isLoaderAnimating = inject("isLoaderAnimating")
 
 router.beforeEach((to, from, next) => {
-    if(from.name === to.name) {
+    if(from.name === to.name || !loaderEnabled) {
         next()
         return
     }
 
-    if(!loaderEnabled) {
+    const shouldIgnorePreloader = to.matched && to.matched.length ?
+        !to.matched[0].props.default['shouldAlwaysPreload'] :
+        false
+
+    if(shouldIgnorePreloader) {
         next()
+        window.scrollTo({top: 0, behavior: "instant"})
         return
     }
 

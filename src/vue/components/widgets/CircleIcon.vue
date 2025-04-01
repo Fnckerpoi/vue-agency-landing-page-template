@@ -25,7 +25,7 @@ span.icon-stack {
         xl:   (font-size: 2.25rem),
         lg:   (font-size: 2rem),
         md:   (font-size: 1.5rem),
-        sm:   (font-size: 1rem),
+        sm:   (font-size: 1.25rem),
     ));
 }
 </style>

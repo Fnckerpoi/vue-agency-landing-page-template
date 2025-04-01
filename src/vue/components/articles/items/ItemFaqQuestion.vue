@@ -1,5 +1,5 @@
 <template>
-    <div class="foxy-item-faq-question mb-4 pe-3">
+    <div class="foxy-item-faq-question">
         <!-- Question Icon -->
         <div class="flex-shrink-0 pe-1 ps-1">
             <i class="fa fa-question-circle text-primary question-icon eq-h4"/>
@@ -7,10 +7,10 @@
 
         <!-- Question Content -->
         <div class="foxy-item-faq-question-content ms-3">
-            <h5 class="foxy-item-faq-question-title"
+            <h5 class="foxy-item-faq-question-title lead-2"
                 v-html="parsedQuestion"/>
 
-            <p class="foxy-item-faq-question-answer text-2 text-muted"
+            <p class="foxy-item-faq-question-answer text-3 text-muted"
                v-html="parsedAnswer"/>
         </div>
     </div>
@@ -45,5 +45,9 @@ div.foxy-item-faq-question {
 
 p.foxy-item-faq-question-answer {
     text-align: justify;
+}
+
+div.foxy-item-faq-question-content {
+    margin-top: -3px;
 }
 </style>

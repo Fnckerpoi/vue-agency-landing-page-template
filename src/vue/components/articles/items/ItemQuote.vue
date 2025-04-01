@@ -5,7 +5,7 @@
              class="foxy-quote-balloon">
             <div class="triangle"/>
 
-            <p class="text-muted text-2 mt-2 px-3">
+            <p class="text-muted text-3 mt-2 px-3">
                 <i class="fa fa-quote-left me-2 text-primary"/>
                 <span v-html="parsedQuote"/>
                 <i class="fa fa-quote-right ms-2 text-primary"/>
@@ -22,7 +22,7 @@
             <h4 class="my-3 mt-2 mt-xxl-3 mb-1"
                 v-html="parsedTitle"/>
 
-            <p class="text-muted text-4 fw-bold mb-2 pb-1"
+            <p class="text-muted text-4 mb-2 pb-1"
                v-html="role"/>
 
             <SocialLinks v-if="props.links"
@@ -89,11 +89,11 @@ div.foxy-quote-avatar {
 }
 
 div.foxy-quote-balloon {
-    --height: clamp(130px, 18.5vh, 150px);
+    --height: clamp(130px, 18.5vh, 170px);
     --padding: 0.5rem;
 
     @include media-breakpoint-down(sm) {
-        --height: 130px;
+        --height: 140px;
         --padding: 0.25rem;
     }
 

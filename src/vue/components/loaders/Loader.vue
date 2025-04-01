@@ -279,6 +279,7 @@ div.foxy-loader-progress-display {
     p {
         color: $text-normal-contrast;
         margin-bottom: 5px;
+        font-family: 'Lato', sans-serif;
     }
 
     .foxy-loader-progress-bar {

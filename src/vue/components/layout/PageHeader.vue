@@ -111,11 +111,12 @@ header.foxy-header {
     }
 
     h4.subheading {
-        font-family: $custom-subheadings-font-family;
+        font-family: $font-family-base;
         color: $light-5;
 
-        font-size: calc(var(--logo-proportion)/13);
+        font-size: clamp(16px, calc(var(--logo-proportion)/14), 100px);
         padding: calc(var(--logo-proportion)/20) 0;
+        line-height: 24px;
         text-align: center;
     }
 }

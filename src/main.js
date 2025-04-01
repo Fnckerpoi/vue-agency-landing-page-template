@@ -17,6 +17,7 @@ const router = createRouter({
                 label: "Home",
                 faIcon: "fa-solid fa-home",
                 inPageNavbar: true,
+                shouldAlwaysPreload: true,
                 breadcrumbs: []
             }
         },
@@ -29,6 +30,7 @@ const router = createRouter({
                 label: "Privacy Policy",
                 faIcon: "fa-solid fa-hammer",
                 inPageNavbar: false,
+                shouldAlwaysPreload: false,
                 breadcrumbs: [
                     "/"
                 ]
@@ -43,6 +45,7 @@ const router = createRouter({
                 label: "License",
                 faIcon: "fa-solid fa-copy",
                 inPageNavbar: false,
+                shouldAlwaysPreload: false,
                 breadcrumbs: [
                     "/"
                 ]

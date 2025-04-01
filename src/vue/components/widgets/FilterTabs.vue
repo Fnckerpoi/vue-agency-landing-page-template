@@ -46,9 +46,10 @@ const _selectItem = (item) => {
 
 div.btn-group {
     margin: 0 auto;
-    min-width: 50%;
+    width: 50%;
     @include media-breakpoint-down(lg) {
-        min-width: 100%;
+        width: 100%;
+        max-width: 600px;
     }
 }
 
@@ -69,7 +70,8 @@ button.btn {
     }
 
     &.active {
-        font-weight: bold;
+        background-color: $primary;
+        color: $text-normal-contrast;
         opacity: 1;
     }
 }

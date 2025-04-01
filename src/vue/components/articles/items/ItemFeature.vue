@@ -6,7 +6,7 @@
             </div>
 
             <div class="foxy-item-feature-content-wrapper">
-                <h5 v-html="parsedTitle"/>
+                <h5 v-html="parsedTitle" class="mb-1 mb-lg-2"/>
 
                 <p class="text-muted text-4 mb-0"
                    v-html="parsedDescription"/>

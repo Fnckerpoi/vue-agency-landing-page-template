@@ -3,7 +3,7 @@
     <PageSection variant="default"
                  :id="props.id">
         <!-- Title -->
-        <PageSectionHeader title="A Rich *Portfolio*"
+        <PageSectionHeader title="Our *Portfolio*"
                            subtitle="Get to know our amazing projects!"/>
 
         <!-- Content -->

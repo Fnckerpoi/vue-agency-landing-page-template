@@ -12,7 +12,7 @@
         <div v-if="props.description.length > 0"
              class="foxy-footer-col-item">
             <div class="foxy-footer-col-description">
-                <p v-for="descriptionItem in props.description" class="text-3 m-0" v-html="descriptionItem"/>
+                <p v-for="descriptionItem in props.description" class="text-2 m-0" v-html="descriptionItem"/>
             </div>
         </div>
 

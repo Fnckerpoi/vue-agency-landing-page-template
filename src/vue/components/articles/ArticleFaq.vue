@@ -1,19 +1,13 @@
 <template>
     <article class="foxy-info-block-faq">
-        <!-- Upper Divider -->
-        <hr class="foxy-info-block-faq-divider mt-0 mb-4 pb-1 pg-lg-0 mb-lg-4">
-
         <!-- Row -->
-        <div class="row">
+        <div class="row gy-3 gy-xl-4 py-2">
             <template v-if="$slots.default">
                 <div v-for="(child, index) in $slots.default()" class="col-12 col-lg-6">
                     <component :is="child" />
                 </div>
             </template>
         </div>
-
-        <!-- Bottom Divider -->
-        <hr class="foxy-info-block-faq-divider mt-0 mt-lg-2 mb-4 pb-2 pb-md-3">
     </article>
 </template>
 

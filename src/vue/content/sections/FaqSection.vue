@@ -9,24 +9,24 @@
         <!-- Content -->
         <PageSectionContent>
             <ArticleFaq>
-                <ItemFaqQuestion question="How do I customize the content of the template?"
-                                 answer="To customize the content, you'll need to modify the <i>agency.json</i> and the <i>sections.json</i> files, which are located in the <i>data</i> folder within the <i>public</i> directory. These JSON files contain the necessary data for the template, allowing you to change texts, images, links, and other elements as per your requirements. Make sure to follow the provided structure to avoid any formatting issues. Additionally, if you need to add new sections or make more extensive changes, you may need to work with the Vue components and other files within the template's structure."/>
-
-                <ItemFaqQuestion question="Can I expect the template to be responsive and work well on mobile devices?"
+                <ItemFaqQuestion question="Can I expect the template to be responsive?"
                                  answer="Absolutely! The template is designed with responsiveness in mind, ensuring that it adapts to various screen types and sizes, including mobile devices. The use of responsive design techniques like media queries and flexible layout ensures that the template looks and functions well on smartphones, tablets, and other mobile devices. During customization, make sure to preview the template on different screen sizes and devices to ensure it displays correctly. If you encounter any issues, you can adjust the CSS styles or layout accordingly to improve the mobile experience further."/>
 
-                <ItemFaqQuestion question="How can I enable the functionality of the contact form?"
-                                 answer="Integrating the contact form requires implementing your own server-side logic. Please note that the current template only includes the client-side implementation. You'll need to set up a backend server to handle form submissions, process data, and send emails or perform other actions as needed. Ensure that the server-side code is secure to prevent potential security vulnerabilities. On the frontend, you can link the form submission to your backend endpoints using JavaScript. Keep in mind that specific steps may vary based on your backend technology and preferences."/>
+                <ItemFaqQuestion question="How do I customize the content of the template?"
+                                 answer="To customize the content, edit the <i>Vue</i> files in the content folder. These files hold the template's data, letting you update texts, images, links, and other elements as needed. Just follow the existing structure to avoid formatting issues. If you want to add new sections or make bigger changes, you might need to tweak the Vue components and other related files in the template."/>
 
-                <ItemFaqQuestion question="What steps should I follow to add a new section to the theme?"
-                                 answer="Adding a new section to the theme involves a few steps. First, create a new Vue component for it in the <i>sections</i> folder. Use the existing components as a reference to maintain consistency with the template's design and functionality. Next, within the <i>public/data/sections.json</i> file, create an item for the new section, where you can define all the necessary data such as texts, links, and other information. After completing these steps, your new section should be fully integrated into the theme."/>
+                <ItemFaqQuestion question="How can I enable the functionality of the contact form?"
+                                 answer="The template now integrates <i>EmailJS</i>, making it easy to send emails directly from your website without needing a backend. It’s designed for seamless integration, allowing you to connect your form to an email service with just a few steps. The setup includes predefined configurations to ensure smooth functionality, but you can customize the settings as needed. During customization, be sure to test the email functionality to confirm everything works correctly. If you run into issues, you can adjust the <i>EmailJS</i> settings or API configuration to improve reliability."/>
+
+                <ItemFaqQuestion question="What steps should I follow to add a new object to the theme?"
+                                 answer="To add a new section to the theme, start by creating a Vue component in the <i>sections</i> folder. Use the existing components as a guide to keep the design and functionality consistent. Inside the new component, define the necessary data like texts, links, and other content. Once you've set everything up, your new section should seamlessly integrate into the theme."/>
             </ArticleFaq>
         </PageSectionContent>
 
         <!-- Footer -->
         <PageSectionFooter title="*Save time* with Foxy!"
                            description="Foxy beautifully and intuitively extends the Vue and Bootstrap frameworks making it easy to build your next project!"
-                           :include-divider="false"
+                           :include-divider="true"
                            :description-text-class="`text-3`"
                            button-label="Download Now!"
                            button-fa-icon="fa-solid fa-download"

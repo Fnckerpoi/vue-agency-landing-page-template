@@ -1,7 +1,7 @@
 <template>
     <div class="foxy-section-header">
         <h1 class="foxy-section-header-title" v-html="parsedTitle"/>
-        <h5 class="foxy-section-header-subtitle" v-html="parsedSubtitle"/>
+        <h5 class="foxy-section-header-subtitle pt-1" v-html="parsedSubtitle"/>
     </div>
 </template>
 
@@ -46,7 +46,7 @@ h1 {
 }
 
 h5 {
-    font-family: $custom-subheadings-font-family;
+    font-family: $font-family-base;
     color: $text-muted;
 }
 </style>

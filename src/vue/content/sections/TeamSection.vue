@@ -22,7 +22,7 @@
                 <ItemQuote title="Alicia Cole"
                            image="images/avatars/person-2.png"
                            role="Marketing Analyst"
-                           quote="With my expertise in market research and consumer behavior, I help businesses make strategic decisions that drive growth and enhance overall customer satisfaction."
+                           quote="With my expertise in market research and consumer behavior, I help businesses make strategic decisions that drive growth and enhance overall customer satisfaction to the best."
                            :links="[
                               { faIcon: 'fa-brands fa-twitter', href: 'https://twitter.com' },
                               { faIcon: 'fa-brands fa-linkedin', href: 'https://linkedin.com' }
