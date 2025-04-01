@@ -49,7 +49,7 @@ watch(() => props.src, () => {
 })
 
 const isLoading = () => {
-    return loadStatus === LoadStatus.LOADING
+    return loadStatus.value === LoadStatus.LOADING
 }
 
 const _onImageLoadSuccess = () => {

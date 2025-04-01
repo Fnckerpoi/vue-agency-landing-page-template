@@ -6,7 +6,7 @@
             :visible="Boolean(loaderActive)"
             :refresh-count="Number(loaderPageRefreshCount)"
             :smooth-transition-enabled="Boolean(loaderSmoothTransitionEnabled)"
-            @mounted="_onLoaderMounted"
+            @ready="_onLoaderMounted"
             @completed="_onLoaderCompleted"/>
 
     <slot v-if="didMountPreloader"/>

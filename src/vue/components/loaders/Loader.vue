@@ -62,15 +62,16 @@ const Steps = {
     LEAVING: 7
 }
 
-const emit = defineEmits(['mounted', 'completed'])
+const emit = defineEmits(['rendered', 'ready', 'completed'])
 
 const schedulerTag = "loader"
 const didLoadLogo = ref(false)
 const currentStep = ref(Steps.NONE)
 const percentage = ref(0)
+const loadingTime = ref(0)
+const loadingTimeAfterRendering = ref(0)
 
 onMounted(() => {
-    emit('mounted')
     scheduler.clearAllWithTag(schedulerTag)
     _performTransition()
 })
@@ -117,6 +118,7 @@ const _executeEnteringStep = () => {
 }
 
 const _executeAnimatingLogoStep = () => {
+    emit('rendered')
     currentStep.value = Steps.LOADING_LOGO
     layout.setBodyScrollEnabled(false)
 
@@ -137,39 +139,63 @@ const _executeAnimatingProgressStep = () => {
     currentStep.value = Steps.ANIMATING_PROGRESS
     scheduler.schedule(() => {
         _executeWaitingForCompletionStep()
-    }, 300, schedulerTag)
+    }, 500, schedulerTag)
 }
 
 const _executeWaitingForCompletionStep = () => {
     currentStep.value = Steps.WAITING_FOR_COMPLETION
 
-    let dt = 0
-    const step = 1000 / 30
+    const dt = 1000 / 30
+    loadingTime.value = 0
+    loadingTimeAfterRendering.value = 0
+    emit('ready')
+
     scheduler.interval(() => {
-        const isPageLoaded = Boolean(document.querySelector('.foxy-page-wrapper'))
-        if(!isPageLoaded)
-            return
+        _updateProgress(dt)
+    }, dt, schedulerTag)
+}
 
-        const imageElements = document.querySelectorAll(".image")
-        const imageLoadProgress = {loaded: 0, total: 0}
-        Array.from(imageElements).map(item => {
-            imageLoadProgress.total++
-            if(item.getAttribute('load-status') !== "loading")
-                imageLoadProgress.loaded++
-        })
+const _updateProgress = (dt) => {
+    const isPageLoaded = Boolean(document.querySelector('.foxy-page-wrapper'))
 
-        dt += step
+    loadingTime.value += isPageLoaded ?
+        dt :
+        dt / 16
 
-        const percentageFromDt = dt*step/100
-        const percentageFromProgress = imageLoadProgress.total ?
-            imageLoadProgress.loaded*100/imageLoadProgress.total :
-            0
+    loadingTimeAfterRendering.value += isPageLoaded ?
+        dt :
+        0
 
-        percentage.value = Math.round(Math.min(percentageFromDt, percentageFromProgress))
-        if(percentage.value >= 100 || dt > 5000) {
-            _onLoadingComplete()
-        }
-    }, step, schedulerTag)
+    const imageLoadPercentage = _getImageLoadPercentage()
+    const minTimePercentage = utils.clamp(loadingTime.value*100/300, 0, 100)
+    const minTimePercentageAfterRendering = utils.clamp(loadingTimeAfterRendering.value*100/300, 0, 100)
+
+    const currentPercentage = (imageLoadPercentage + minTimePercentage + minTimePercentageAfterRendering)/3
+    _incrementDisplayPercentage(currentPercentage)
+}
+
+const _getImageLoadPercentage = () => {
+    const imageElements = document.querySelectorAll(".image")
+    const imageLoadProgress = {loaded: 0, total: 0}
+    Array.from(imageElements).map(item => {
+        imageLoadProgress.total++
+        if(item.getAttribute('load-status') === "loaded")
+            imageLoadProgress.loaded++
+    })
+
+    if(imageLoadProgress.total <= 0)
+        return 0
+    return utils.clamp(imageLoadProgress.loaded*100/imageLoadProgress.total, 0, 100)
+}
+
+const _incrementDisplayPercentage = (currentPercentage) => {
+    const diff = currentPercentage - percentage.value
+    const smootheningPercentageIncrement = diff > 16 ? 16 : Math.round(diff)
+    percentage.value += smootheningPercentageIncrement
+    percentage.value = utils.clamp(percentage.value, 0, 100)
+    if(percentage.value === 100 || loadingTimeAfterRendering.value >= 5000) {
+        _onLoadingComplete()
+    }
 }
 
 const _onLoadingComplete = () => {
