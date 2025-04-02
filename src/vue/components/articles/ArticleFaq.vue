@@ -1,9 +1,9 @@
 <template>
     <article class="foxy-info-block-faq">
         <!-- Row -->
-        <div class="row gx-4 gy-3 gy-xl-4">
+        <div class="faq-grid">
             <template v-if="$slots.default">
-                <div v-for="(child, index) in $slots.default()" class="col-12 col-lg-6">
+                <div v-for="(child, index) in $slots.default()" class="faq-grid-item-wrapper">
                     <component :is="child" />
                 </div>
             </template>
@@ -17,6 +17,22 @@ const props = defineProps({})
 
 <style lang="scss" scoped>
 @import "/src/scss/_theming.scss";
+
+div.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    row-gap: 30px;
+
+    @include media-breakpoint-down(xxl) {
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 20px;
+    }
+
+    @include media-breakpoint-down(md) {
+        row-gap: 10px;
+    }
+}
 
 hr.foxy-info-block-faq-divider {
     opacity: 0.1;

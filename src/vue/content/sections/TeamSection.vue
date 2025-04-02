@@ -41,7 +41,7 @@
                 <ItemQuote title="Sofia Kondakova"
                            image="images/avatars/person-3.png"
                            role="Lead Developer"
-                           quote="With a proven track record of creating complex software systems, I bring a wealth of <b>technical expertise</b> to the table."
+                           quote="With a proven track record of creating complex distributed software systems, I bring a wealth of <b>technical expertise</b> to the table."
                            :links="[
                               { faIcon: 'fa-brands fa-twitter', href: 'https://twitter.com' },
                               { faIcon: 'fa-brands fa-linkedin', href: 'https://linkedin.com' },

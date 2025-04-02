@@ -10,7 +10,7 @@
             <h5 class="foxy-item-faq-question-title lead-2"
                 v-html="parsedQuestion"/>
 
-            <p class="foxy-item-faq-question-answer text-3 text-muted"
+            <p class="foxy-item-faq-question-answer text-3 text-light-7"
                v-html="parsedAnswer"/>
         </div>
     </div>
@@ -50,12 +50,6 @@ p.foxy-item-faq-question-answer {
 div.foxy-item-faq-question-content {
     margin-top: -2px;
     margin-left: 10px;
-    margin-right: 10px;
-
-    @include media-breakpoint-down(lg) {
-        margin-right: 0;
-    }
-
     @include media-breakpoint-down(sm) {
         margin-top: -1px;
     }
