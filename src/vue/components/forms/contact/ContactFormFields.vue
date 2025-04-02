@@ -10,15 +10,13 @@
         <!-- Left Column -->
         <div class="foxy-contact-form-left-column col-lg-6">
             <!-- Input Groups -->
-            <div class="form-group input-group" v-for="item in [
-                {id: 'name', faIcon: 'fa-solid fa-signature', type: 'text'},
-                {id: 'email', faIcon: 'fa-solid fa-envelope', type: 'email'},
-                {id: 'subject', faIcon: 'fa-solid fa-pen-to-square', type: 'text'},
-            ]">
+            <div v-for="item in inputItems"
+                 class="form-group input-group"
+                 :class="focusId === item.id ? `form-group-focused` : ``">
                 <!-- Icon Attach -->
                 <span class="input-group-text input-group-attach">
-                            <i :class="item.faIcon"/>
-                        </span>
+                    <i :class="item.faIcon"/>
+                </span>
 
                 <!-- Input -->
                 <input class="form-control"
@@ -27,6 +25,8 @@
                        :name="item.id"
                        :placeholder="`${strings.get(item.id)} *`"
                        @input="_onInputChanged"
+                       @focusin="_onFocusIn(item.id)"
+                       @focusout="_onFocusOut(item.id)"
                        required/>
             </div>
         </div>
@@ -41,6 +41,8 @@
                           placeholder="Message *"
                           maxlength="2048"
                           @input="_onInputChanged"
+                          @focusin="_onFocusIn('message')"
+                          @focusout="_onFocusOut('message')"
                           required/>
             </div>
         </div>
@@ -48,7 +50,7 @@
         <!-- Buttons -->
         <div class="foxy-contact-form-bottom-column col-lg-12 text-center">
             <XLButton :label="strings.get('send')"
-                      class="btn-submit"
+                      class="btn-submit btn-primary-light"
                       type="submit"
                       icon="fa-solid fa-envelope"/>
         </div>
@@ -58,7 +60,7 @@
 <script setup>
 import Alert from "/src/vue/components/widgets/Alert.vue"
 import XLButton from "/src/vue/components/widgets/XLButton.vue"
-import {inject} from "vue"
+import {inject, ref} from "vue"
 import {useStrings} from "/src/composables/strings.js"
 
 const strings = useStrings()
@@ -68,6 +70,22 @@ const props = defineProps({
 })
 
 const emit = defineEmits(["input"])
+
+const focusId = ref(null)
+
+const inputItems = [
+    {id: 'name', faIcon: 'fa-solid fa-signature', type: 'text'},
+    {id: 'email', faIcon: 'fa-solid fa-envelope', type: 'email'},
+    {id: 'subject', faIcon: 'fa-solid fa-pen-to-square', type: 'text'},
+]
+
+const _onFocusIn = (id) => {
+    focusId.value = id
+}
+
+const _onFocusOut = (id) => {
+    focusId.value = null
+}
 
 const _onInputChanged = (e) => {
     const target = e.target
@@ -118,10 +136,15 @@ div.foxy-contact-form-row {
 
 /** ----------- FORM SIZES AND LAYOUT ------------- **/
 span.input-group-attach {
-    min-width: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.2rem;
+    min-width: 70px;
+    @include media-breakpoint-down(xl) {
+        font-size: 1rem;
+        width: 65px;
+    }
     @include media-breakpoint-down(sm) {
         min-width: 50px;
         font-size: 0.9rem;
@@ -175,6 +198,7 @@ input, textarea {
         background-color: $dark;
         border-color: $primary;
         color: $white;
+        box-shadow: none;
     }
 }
 
@@ -182,6 +206,8 @@ span.input-group-attach {
     background-color: lighten($dark, 1%);
     border-color: lighten($dark, 15%);
     color: $light-5;
+    border-width: 2px;
+    border-right-width: 0;
 }
 
 input {
@@ -200,6 +226,15 @@ input {
     }
 }
 
+div.form-group-focused {
+    span.input-group-attach {
+        background-color: lighten($primary, 6%);
+        border-color: $primary;
+        color: $light-1;
+    }
+}
+
+/** ----------- PLACEHOLDERS ------------- **/
 $input-placeholder-text-color: darken($light-6, 7%);
 
 ::-webkit-input-placeholder {

@@ -74,6 +74,10 @@ $texts-base-sizes: (
             color: nth($light-shades-palette, $i)!important;
         }
     }
+
+    &-primary-light {
+        color: lighten($primary, 10%);
+    }
 }
 
 a {

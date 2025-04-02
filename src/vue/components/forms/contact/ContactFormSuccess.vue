@@ -5,13 +5,13 @@
         </div>
 
         <div class="foxy-contact-form-success-content-wrapper mt-2">
-            <h3 v-html="utils.parseCustomText(strings.get('contact_thank_you'))"/>
+            <h3 v-html="utils.parseCustomText(strings.get('contact_thank_you'), true)"/>
 
             <p class="text-4 mt-4 mb-3"
                v-html="utils.parseCustomText(strings.get('contact_thank_you_description'))"/>
 
             <p class="text-4"
-               v-html="utils.parseCustomText(strings.get('contact_thank_you_reply').replaceAll('{email}', props.email))"/>
+               v-html="utils.parseCustomText(strings.get('contact_thank_you_reply').replaceAll('{email}', props.email), true)"/>
         </div>
     </div>
 </template>
@@ -37,8 +37,9 @@ div.foxy-contact-form-success {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: rgba($dark, 0.15);
-    padding: 30px;
+    background-color: rgba($dark, 0.05);
+    border: 1px dashed rgba(black, 0.2);
+    padding: 40px 30px;
     border-radius: 10px;
 }
 

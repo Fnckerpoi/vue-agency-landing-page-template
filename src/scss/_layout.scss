@@ -52,6 +52,13 @@ body.body-no-scroll {
     }
 }
 
+.btn-primary-light {
+    background-color: lighten($primary, 3%);
+    &:hover {
+        background-color: darken($primary, 3%);
+    }
+}
+
 /** ------------- SWIPER ------------------ **/
 div.swiper-pagination {
     display: flex;

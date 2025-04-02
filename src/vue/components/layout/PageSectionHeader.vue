@@ -13,11 +13,12 @@ const utils = useUtils()
 
 const props = defineProps({
     title: String,
-    subtitle: String
+    subtitle: String,
+    contrast: Boolean
 })
 
 const parsedTitle = computed(() => {
-    return utils.parseCustomText(props.title)
+    return utils.parseCustomText(props.title, props.contrast)
 })
 
 const parsedSubtitle = computed(() => {

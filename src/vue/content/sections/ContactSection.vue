@@ -3,8 +3,9 @@
     <PageSection variant="dark"
                  :id="props.id">
         <!-- Title -->
-        <PageSectionHeader title="Contact Us"
-                           subtitle="Don't hesitate to reach us out!"/>
+        <PageSectionHeader title="*Contact* Us"
+                           subtitle="Don't hesitate to reach us out!"
+                           :contrast="true"/>
 
         <!-- Content -->
         <PageSectionContent>

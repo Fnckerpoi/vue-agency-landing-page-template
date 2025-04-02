@@ -67,12 +67,18 @@ export function useUtils() {
 
     /**
      * @param {String} title
+     * @param {Boolean} [contrastTitle=false]
      * @return {String}
      */
-    const parseCustomText = (title) => {
+    const parseCustomText = (title, contrastTitle) => {
         if(!title)
             return ``
-        return title.replace(/\*(.*?)\*/g, '<span class="text-primary">$1</span>')
+
+        const titleClass = contrastTitle ?
+            "text-primary-light" :
+            "text-primary"
+
+        return title.replace(/\*(.*?)\*/g, `<span class="${titleClass}">$1</span>`)
     }
 
     return {
