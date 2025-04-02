@@ -5,11 +5,8 @@
              class="foxy-quote-balloon">
             <div class="triangle"/>
 
-            <p class="text-muted text-3 px-3 m-0">
-                <i class="fa fa-quote-left me-2 text-primary"/>
-                <span v-html="parsedQuote"/>
-                <i class="fa fa-quote-right ms-2 text-primary"/>
-            </p>
+            <QuotedText class="text-muted text-3 mx-3"
+                        :text="parsedQuote"/>
         </div>
 
         <!-- Avatar -->
@@ -38,6 +35,7 @@ import {computed} from "vue"
 import {useUtils} from "/src/composables/utils.js"
 import ImageView from "/src/vue/components/generic/ImageView.vue"
 import SocialLinks from "/src/vue/components/widgets/SocialLinks.vue"
+import QuotedText from "/src/vue/components/widgets/QuotedText.vue"
 
 const utils = useUtils()
 

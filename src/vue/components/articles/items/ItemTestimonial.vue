@@ -11,9 +11,7 @@
         </div>
 
         <div class="card-body text-3">
-            <i class="fa fa-quote-left me-2 text-primary"/>
-            <span v-html="parsedQuote"/>
-            <i class="fa fa-quote-right ms-2 text-primary"/>
+            <QuotedText :text="parsedQuote"/>
         </div>
 
         <div class="card-footer">
@@ -35,6 +33,7 @@
 import ImageView from "/src/vue/components/generic/ImageView.vue"
 import {computed} from "vue"
 import {useUtils} from "/src/composables/utils.js"
+import QuotedText from "/src/vue/components/widgets/QuotedText.vue"
 
 const utils = useUtils()
 
