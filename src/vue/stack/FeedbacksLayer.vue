@@ -8,40 +8,50 @@
             :smooth-transition-enabled="Boolean(loaderSmoothTransitionEnabled)"
             @rendered="_onLoaderRendered"
             @ready="_onLoaderReady"
+            @leaving="_onLoaderWillLeave"
             @completed="_onLoaderCompleted"/>
 
     <slot v-if="isReady"/>
 </template>
 
 <script setup>
-import {inject, provide, ref} from "vue"
+import {inject, provide, ref, watch} from "vue"
 import ActivitySpinner from "/src/vue/components/loaders/ActivitySpinner.vue"
 import Loader from "/src/vue/components/loaders/Loader.vue"
 
 const loaderEnabled = inject("loaderEnabled")
+const LoaderAnimationStatus = inject("LoaderAnimationStatus")
 const loaderActive = inject("loaderActive")
 const loaderPageRefreshCount = inject("loaderPageRefreshCount")
 const loaderSmoothTransitionEnabled = inject("loaderSmoothTransitionEnabled")
+const loaderAnimationStatus = inject("loaderAnimationStatus")
 const spinnerActive = inject("spinnerActive")
 const spinnerMessage = inject("spinnerMessage")
 
 const isReady = ref(!loaderEnabled)
-const isLoaderAnimating = ref(loaderEnabled)
+
+watch(() => loaderEnabled.value, () => {
+    if(loaderEnabled.value) {
+        loaderAnimationStatus.value = LoaderAnimationStatus.INITIALIZED
+    }
+})
 
 const _onLoaderRendered = () => {
-    isLoaderAnimating.value = true
+    loaderAnimationStatus.value = LoaderAnimationStatus.RENDERED
 }
 
 const _onLoaderReady = () => {
     isReady.value = true
-    isLoaderAnimating.value = false
+    loaderAnimationStatus.value = LoaderAnimationStatus.TRACKING_PROGRESS
+}
+
+const _onLoaderWillLeave = () => {
+    loaderAnimationStatus.value = LoaderAnimationStatus.LEAVING
 }
 
 const _onLoaderCompleted = () => {
     loaderActive.value = false
 }
-
-provide("isLoaderAnimating", isLoaderAnimating)
 </script>
 
 <style lang="scss" scoped>

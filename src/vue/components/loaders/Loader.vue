@@ -62,7 +62,7 @@ const Steps = {
     LEAVING: 7
 }
 
-const emit = defineEmits(['rendered', 'ready', 'completed'])
+const emit = defineEmits(['rendered', 'ready', 'leaving', 'completed'])
 
 const schedulerTag = "loader"
 const didLoadLogo = ref(false)
@@ -206,9 +206,18 @@ const _onLoadingComplete = () => {
 }
 
 const _executeLeavingStep = () => {
-    currentStep.value = Steps.LEAVING
     layout.setBodyScrollEnabled(true)
-    window.scrollTo({top: 0, behavior: "instant"})
+    emit('leaving')
+
+    if(window.location.hash) {
+        scheduler.schedule(() => {
+            currentStep.value = Steps.LEAVING
+        }, 200, schedulerTag)
+    }
+    else {
+        currentStep.value = Steps.LEAVING
+    }
+
     scheduler.schedule(() => {
         emit('completed')
     }, 900, schedulerTag)

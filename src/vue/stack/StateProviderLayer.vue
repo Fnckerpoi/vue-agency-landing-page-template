@@ -13,6 +13,13 @@ const settings = useSettings()
  **/
 const loaderEnabled = settings.getLoaderEnabled()
 
+const LoaderAnimationStatus = {
+    INITIALIZED: "initialized",
+    RENDERED: "rendered",
+    TRACKING_PROGRESS: "tracking_progress",
+    LEAVING: "leaving"
+}
+
 /**
  * Global state FLAGS
  **/
@@ -20,6 +27,7 @@ const currentPageSections = ref([])
 const loaderActive = ref(true)
 const loaderPageRefreshCount = ref(0)
 const loaderSmoothTransitionEnabled = ref(false)
+const loaderAnimationStatus = ref(null)
 const projectModalTarget = ref(null)
 const spinnerActive = ref(false)
 const spinnerMessage = ref("")
@@ -34,11 +42,13 @@ const setSpinnerEnabled = (enabled, message) => {
 }
 
 provide("loaderEnabled", loaderEnabled)
+provide("LoaderAnimationStatus", LoaderAnimationStatus)
 
 provide("currentPageSections", currentPageSections)
 provide("loaderActive", loaderActive)
 provide("loaderPageRefreshCount", loaderPageRefreshCount)
 provide("loaderSmoothTransitionEnabled", loaderSmoothTransitionEnabled)
+provide("loaderAnimationStatus", loaderAnimationStatus)
 provide("projectModalTarget", projectModalTarget)
 provide("spinnerActive", spinnerActive)
 provide("spinnerMessage", spinnerMessage)

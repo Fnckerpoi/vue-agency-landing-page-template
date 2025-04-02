@@ -1,6 +1,6 @@
 <template>
     <!-- Main Content -->
-    <slot v-if="!isLoaderAnimating"/>
+    <slot v-if="shouldSlot"/>
 
     <!-- Modals -->
     <ProjectModal :project="projectModalTarget"
@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import {inject} from "vue"
+import {computed, inject, watch} from "vue"
 import {useRouter} from "vue-router"
 import ProjectModal from "/src/vue/components/projects/ProjectModal.vue"
 
@@ -19,7 +19,30 @@ const loaderActive = inject("loaderActive")
 const loaderPageRefreshCount = inject("loaderPageRefreshCount")
 const loaderSmoothTransitionEnabled = inject("loaderSmoothTransitionEnabled")
 const projectModalTarget = inject("projectModalTarget")
-const isLoaderAnimating = inject("isLoaderAnimating")
+const LoaderAnimationStatus = inject("LoaderAnimationStatus")
+const loaderAnimationStatus = inject("loaderAnimationStatus")
+
+const shouldSlot = computed(() => {
+    return !loaderEnabled ||
+        loaderAnimationStatus.value === LoaderAnimationStatus.TRACKING_PROGRESS ||
+        loaderAnimationStatus.value === LoaderAnimationStatus.LEAVING
+})
+
+watch(() => loaderAnimationStatus.value, () => {
+    if(loaderAnimationStatus.value === LoaderAnimationStatus.LEAVING) {
+        const hash = window.location.hash
+        const element = hash ?
+            document.querySelector(hash) :
+            null
+
+        if(!element || !loaderEnabled) {
+            window.scrollTo({top: 0, behavior: "instant"})
+            return
+        }
+
+        element.scrollIntoView({behavior: "smooth"})
+    }
+})
 
 router.beforeEach((to, from, next) => {
     if(from.name === to.name || !loaderEnabled) {
