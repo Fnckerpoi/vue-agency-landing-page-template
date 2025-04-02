@@ -48,3 +48,33 @@ $light-shades-palette: (
     $light-6,
     $light-7,
 );
+
+/** Typography - Texts Breakpoints **/
+$texts-breakpoint-multipliers: (
+    xxxl: 1,
+    xxl: 0.95,
+    xl: 0.925,
+    lg: 0.9,
+    md: 0.875,
+    sm: 0.85
+);
+
+/** Typography - Headings Breakpoints **/
+$headings-breakpoint-multipliers: (
+    xxxl: 1,
+    xxl: 0.95,
+    xl: 0.925,
+    lg: 0.9,
+    md: 0.85,
+    sm: 0.8
+);
+
+/** Typography - Headings Base Sizes **/
+$headings-base-sizes: (
+    h1: (font-size: 3rem),
+    h2: (font-size: 2.5rem),
+    h3: (font-size: 2rem),
+    h4: (font-size: 1.5rem),
+    h5: (font-size: 1.3rem),
+    h6: (font-size: 1.1rem)
+);

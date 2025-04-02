@@ -1,7 +1,7 @@
 <template>
     <article class="foxy-info-block-faq">
         <!-- Row -->
-        <div class="row gy-3 gy-xl-4 py-2">
+        <div class="row gx-4 gy-3 gy-xl-4">
             <template v-if="$slots.default">
                 <div v-for="(child, index) in $slots.default()" class="col-12 col-lg-6">
                     <component :is="child" />

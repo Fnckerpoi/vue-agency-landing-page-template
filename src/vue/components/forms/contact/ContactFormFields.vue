@@ -193,6 +193,7 @@ input, textarea {
     border-color: lighten($dark, 12%);
     border-width: 2px;
     color: $white;
+    transition: 0.1s border-color ease-in-out;
 
     &:focus {
         background-color: $dark;
@@ -208,6 +209,7 @@ span.input-group-attach {
     color: $light-5;
     border-width: 2px;
     border-right-width: 0;
+    transition: 0.1s background-color ease-in-out, 0.1s border-color ease-in-out;
 }
 
 input {
