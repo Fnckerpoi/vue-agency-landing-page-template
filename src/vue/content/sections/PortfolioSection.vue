@@ -57,11 +57,11 @@
                                  ]"
                 />
 
-                <ItemProjectGrid title="Find-A-Goalie"
+                <ItemProjectGrid title="LiveScore Pro"
                                  category="Utilities"
-                                 :description="`<b>Find-A-Goalie</b> is your go-to app for finding goalkeepers to join your casual soccer matches. With its simple and efficient interface, Find-A-Goalie connects players and goalkeepers in your local area, making it easy to organize matches and build a reliable team. Say goodbye to match cancellations due to lack of goalkeepers and enjoy the beautiful game with newfound teammates.`"
+                                 :description="`Stay ahead of the game with <b>LiveScore Pro</b>! Get real-time football scores, goal updates, and match results from leagues worldwide. Never miss a moment of the action!`"
                                  image="images/portfolio/project-logo-4.png"
-                                 :tags="['app', 'sports', 'soccer', 'goalkeeper']"
+                                 :tags="['soccer', 'scores', 'sports', 'results']"
                                  :links="[
                                     { faIcon: 'fa-brands fa-apple', href: 'https://apple.com' },
                                     { faIcon: 'fa-brands fa-google-play', href: 'https://googleplay.com' },

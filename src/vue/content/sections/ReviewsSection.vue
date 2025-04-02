@@ -11,7 +11,7 @@
             <ArticleTestimonials>
                 <ItemTestimonial title="Spotify"
                                  image="images/clients/client-spotify.svg"
-                                 quote="I am absolutely <b>blown away</b> by the Vue3 website template! The minimalist design is simply stunning, and it's <b>incredibly easy</b> to customize to fit my needs. Plus, it loads super fast, which is crucial for my business. I highly recommend this template to you all!"
+                                 quote="I am absolutely <b>blown away</b> by the Vue3 website template! The minimalist design is simply stunning, and it's <b>incredibly easy</b> to customize to fit my needs. Plus, it loads super fast, which is crucial for my business. I highly recommend this template to you!"
                                  author="John Lee"
                                  role="Engineer"/>
 
