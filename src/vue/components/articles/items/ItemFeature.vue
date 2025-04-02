@@ -1,12 +1,12 @@
 <template>
-    <div class="foxy-item-feature col-12 col-sm-6 col-lg-4">
+    <div class="foxy-item-feature col-12 col-md-6 col-lg-4">
         <div class="foxy-item-feature-content mb-lg-4">
             <div class="foxy-item-feature-icon-wrapper">
                 <CircleIcon :fa-icon="faIcon"/>
             </div>
 
             <div class="foxy-item-feature-content-wrapper">
-                <h5 v-html="parsedTitle" class="mb-1 mb-lg-2"/>
+                <h5 v-html="parsedTitle" class="mb-1 mb-sm-2"/>
 
                 <p class="text-muted text-4 mb-0"
                    v-html="parsedDescription"/>
@@ -44,7 +44,7 @@ div.foxy-item-feature-content {
     @include generate-dynamic-styles-with-hash((
         xxxl: (flex-direction: column, padding: 0 1rem),
         lg:   (flex-direction: row, text-align:left, padding: 0 0.5rem),
-        sm:   (padding: 0)
+        md:   (padding: 0)
     ));
 
     display: flex;

@@ -5,7 +5,7 @@
              class="foxy-quote-balloon">
             <div class="triangle"/>
 
-            <p class="text-muted text-3 mt-2 px-3">
+            <p class="text-muted text-3 px-3 m-0">
                 <i class="fa fa-quote-left me-2 text-primary"/>
                 <span v-html="parsedQuote"/>
                 <i class="fa fa-quote-right ms-2 text-primary"/>
@@ -89,8 +89,18 @@ div.foxy-quote-avatar {
 }
 
 div.foxy-quote-balloon {
-    --height: clamp(130px, 18.5vh, 170px);
-    --padding: 0.5rem;
+    --height: 180px;
+    --padding: 0 12px;
+
+    @include media-breakpoint-down(xxl) {
+        --height: 170px;
+        --padding: 0 10px;
+    }
+
+    @include media-breakpoint-down(lg) {
+        --height: 170px;
+        --padding: 0 10px;
+    }
 
     @include media-breakpoint-down(sm) {
         --height: 140px;
