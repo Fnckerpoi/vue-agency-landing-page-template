@@ -8,7 +8,7 @@
 
 <script setup>
 import Navbar from "/src/vue/components/nav/navbar/Navbar.vue"
-import {computed, inject, onMounted, onUnmounted, ref} from "vue"
+import {computed, inject, onMounted, onUnmounted, ref, watch} from "vue"
 import {useRoute, useRouter} from "vue-router"
 import {useLayout} from "/src/composables/layout.js"
 
@@ -20,6 +20,10 @@ const layout = useLayout()
  * @type {{value: SectionInfo[]}}
  */
 const currentPageSections = inject("currentPageSections")
+
+const LoaderAnimationStatus = inject("LoaderAnimationStatus")
+const loaderAnimationStatus = inject("loaderAnimationStatus")
+
 const currentSection = ref(null)
 
 const props = defineProps({
@@ -51,6 +55,12 @@ onMounted(() => {
 onUnmounted(() => {
     window.removeEventListener('scroll', _onWindowEvent)
     window.removeEventListener('resize', _onWindowEvent)
+})
+
+watch(() => loaderAnimationStatus.value, () => {
+    if(loaderAnimationStatus.value === LoaderAnimationStatus.LEAVING) {
+        _onWindowEvent()
+    }
 })
 
 const _initSpyScroll = () => {
