@@ -10,7 +10,7 @@
                 v-html="parsedTitle"/>
         </div>
 
-        <div class="card-body text-3">
+        <div class="card-body text-4">
             <QuotedText :text="parsedQuote"/>
         </div>
 

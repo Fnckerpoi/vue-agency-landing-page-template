@@ -1,6 +1,6 @@
 <template>
     <!-- Inline Link List -->
-    <ul class="inline-link-list mt-0 mt-lg-3">
+    <ul class="inline-link-list">
         <!-- List Header (for small screens) -->
         <li class="inline-link-list-item inline-link-list-header">
             ━ <i class="fa fa-circle-nodes"/> ━
@@ -101,7 +101,7 @@ li.inline-link-list-header {
     color: $light-6;
 
     i.inline-link-list-icon {
-        min-width: 25px;
+        min-width: 22px;
         color: $light-5;
         @include media-breakpoint-down(md) {
             min-width: 20px;

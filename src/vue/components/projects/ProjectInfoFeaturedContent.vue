@@ -8,7 +8,7 @@
         <h1 class="project-title display-1 text-white text-uppercase"
             v-html="parsedTitle"/>
 
-        <p class="description text-5 text-light-5 mt-4 mb-4"
+        <p class="description eq-h6 text-light-5 mt-4 mb-4"
            v-html="parsedDescription"/>
 
         <SocialLinks v-if="props.links"

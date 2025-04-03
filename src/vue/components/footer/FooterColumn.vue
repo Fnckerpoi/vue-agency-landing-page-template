@@ -26,7 +26,7 @@
 
         <!-- Inline Links -->
         <div v-if="props.links.length > 0 && !props.displayLinksAsButtons"
-             class="foxy-footer-col-item mt-2 mt-lg-0">
+             class="foxy-footer-col-item mt-2 mt-lg-1">
             <InlineLinkList :items="props.links"/>
         </div>
     </div>
@@ -84,11 +84,18 @@ div.foxy-footer-col-item {
     justify-content: center;
 
     @include generate-dynamic-styles-with-hash((
-        xxxl: (min-height: 50px, padding-top:0.5rem),
-        lg: (min-height: 0, padding-top:0.3rem),
+        xxxl: (padding-top:0.5rem),
+        lg: (padding-top:0.3rem),
     ));
 
     margin: 0 auto;
     max-width: 380px;
+}
+
+div.foxy-footer-col-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
 }
 </style>

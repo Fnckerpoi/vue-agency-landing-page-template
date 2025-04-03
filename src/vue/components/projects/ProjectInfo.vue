@@ -40,9 +40,9 @@ div.foxy-project-info-logo-wrapper {
     @include generate-dynamic-styles-with-hash((
         xxxl: (height: 320px, min-width: 320px, margin-right: 6rem),
         xl:   (height: 300px, min-width: 300px, margin-right: 4rem),
-        lg:   (height: min(230px, 35vw), min-width: 0, width: min(230px, 35vw), margin-right:0, margin-bottom: 2rem),
+        lg:   (height: min(230px, 35vw), min-width: 0, width: min(230px, 35vw), margin-right:0, margin-bottom: 1rem),
         md:   (width: min(200px, 35vw), height: min(200px, 35vw)),
-        sm:   (width: min(170px, 32.5vw), height: min(170px, 32.5vw), margin-bottom: 1.5rem),
+        sm:   (width: min(170px, 32.5vw), height: min(170px, 32.5vw)),
     ));
 
     aspect-ratio: 1/1;
@@ -50,9 +50,9 @@ div.foxy-project-info-logo-wrapper {
 
 div.foxy-project-info-logo-wrapper-shrink {
     @include generate-dynamic-styles-with-hash((
-        xxxl: (height: 280px, min-width: 280px, margin-right: 3rem),
-        xl:   (height: 250px, min-width: 250px, margin-right: 3rem),
-        lg:   (height: auto, min-width: 0, width: min(200px, 35vw), margin-right:0)
+        xxxl: (height: 280px, width: 280px, min-width: 280px, margin-right: 3rem),
+        xl:   (height: 250px, width: 250px, min-width: 250px, margin-right: 3rem),
+        lg:   (height: min(200px, 35vw), min-width: 0, width: min(200px, 35vw), margin-right:0)
     ));
 }
 

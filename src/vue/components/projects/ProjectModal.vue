@@ -81,6 +81,14 @@ div.modal-content {
     background-color: $light-1;
 }
 
+.modal-xl {
+    @include media-breakpoint-down(xl) {
+        .modal-dialog {
+            min-width: 90vw !important;
+        }
+    }
+}
+
 button.close-button {
     position: absolute;
     z-index: 99;

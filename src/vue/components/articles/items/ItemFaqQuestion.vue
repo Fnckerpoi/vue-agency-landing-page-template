@@ -10,7 +10,7 @@
             <h5 class="foxy-item-faq-question-title lead-2"
                 v-html="parsedQuestion"/>
 
-            <p class="foxy-item-faq-question-answer text-3 text-light-7"
+            <p class="foxy-item-faq-question-answer text-4 text-light-7"
                v-html="parsedAnswer"/>
         </div>
     </div>

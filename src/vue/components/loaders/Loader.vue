@@ -66,10 +66,10 @@ const emit = defineEmits(['rendered', 'ready', 'leaving', 'completed'])
 
 const schedulerTag = "loader"
 const didLoadLogo = ref(false)
+const didEmitReady = ref(false)
 const currentStep = ref(Steps.NONE)
 const percentage = ref(0)
 const loadingTime = ref(0)
-const loadingTimeAfterRendering = ref(0)
 
 onMounted(() => {
     scheduler.clearAllWithTag(schedulerTag)
@@ -147,8 +147,7 @@ const _executeWaitingForCompletionStep = () => {
 
     const dt = 1000 / 30
     loadingTime.value = 0
-    loadingTimeAfterRendering.value = 0
-    emit('ready')
+    didEmitReady.value = false
 
     scheduler.interval(() => {
         _updateProgress(dt)
@@ -162,15 +161,10 @@ const _updateProgress = (dt) => {
         dt :
         dt / 16
 
-    loadingTimeAfterRendering.value += isPageLoaded ?
-        dt :
-        0
-
     const imageLoadPercentage = _getImageLoadPercentage()
-    const minTimePercentage = utils.clamp(loadingTime.value*100/300, 0, 100)
-    const minTimePercentageAfterRendering = utils.clamp(loadingTimeAfterRendering.value*100/300, 0, 100)
+    const minTimePercentage = utils.clamp(loadingTime.value*80/500, 0, 100)
 
-    const currentPercentage = (imageLoadPercentage + minTimePercentage + minTimePercentageAfterRendering)/3
+    const currentPercentage = (imageLoadPercentage + minTimePercentage)/2
     _incrementDisplayPercentage(currentPercentage)
 }
 
@@ -190,10 +184,23 @@ const _getImageLoadPercentage = () => {
 
 const _incrementDisplayPercentage = (currentPercentage) => {
     const diff = currentPercentage - percentage.value
-    const smootheningPercentageIncrement = diff > 16 ? 16 : Math.round(diff)
+    if(diff < 0)
+        return
+
+    const step = didEmitReady.value ?
+        8 :
+        Math.round(4 + Math.random() * 4)
+
+    const smootheningPercentageIncrement = diff > step ? step : Math.round(diff)
     percentage.value += smootheningPercentageIncrement
     percentage.value = utils.clamp(percentage.value, 0, 100)
-    if(percentage.value === 100 || loadingTimeAfterRendering.value >= 8000) {
+
+    if(percentage.value > 12 && !didEmitReady.value) {
+        emit('ready')
+        didEmitReady.value = true
+    }
+
+    if(percentage.value === 100 || loadingTime.value >= 8000) {
         _onLoadingComplete()
     }
 }

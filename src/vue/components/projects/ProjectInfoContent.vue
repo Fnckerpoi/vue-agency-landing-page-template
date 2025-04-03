@@ -1,7 +1,7 @@
 <template>
     <div class="foxy-project-info-content">
         <!-- Title -->
-        <h1 class="mb-2"
+        <h1 class="mb-3"
             v-html="parsedTitle"/>
 
         <!-- Tags Label -->
@@ -20,23 +20,23 @@
 
         <!-- About -->
         <div class="mt-4" v-if="props.description">
-            <h5 class="d-none d-lg-inline-block">
+            <h5 class="d-none d-lg-inline-block lead-2">
                 <i class="fa fa-file me-1"/>
                 {{ strings.get('about') }}
             </h5>
 
-            <p class="text-2"
+            <p class="text-4"
                v-html="parsedDescription"/>
         </div>
 
         <!-- Links -->
         <div class="mt-4" v-if="props.links">
-            <h5>
+            <h5 class="lead-2">
                 <i class="fa fa-external-link me-1"/>
                 {{ strings.get('where_to_find') }}
             </h5>
 
-            <p class="text-2"
+            <p class="text-4"
                v-html="strings.get('project_available_here', [
                   {key: 'title', replacement: parsedTitle}
                ])"

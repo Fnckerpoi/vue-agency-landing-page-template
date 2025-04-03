@@ -11,7 +11,7 @@
         <FooterBlock :darken="false"
                      :row="true">
             <FooterColumn title="About"
-                          faIcon="fa fa-pen me-1 d-none d-md-inline"
+                          faIcon="fa-solid fa-pen-to-square me-1 d-none d-md-inline"
                           :description="[
                               `This template is maintained by Ryan Balieiro and is based on the <a href='https://getbootstrap.com/'>Bootstrap</a> framework and the <a href='https://vuejs.org/'>Vue</a> framework.`
                           ]"
@@ -41,8 +41,8 @@
                               `Cupertino – CA 01235`
                           ]"
                           :links="[
-                              {label: `(555) 555-1234`, href: `tel:123456789`, faIcon: 'fa-solid fa-phone'},
-                              {label: `contact@foxyagency.com`, href: `mailto:foxy@agency.com`, faIcon: 'fa-solid fa-envelope'},
+                              {label: `(555) 555-1234`, href: `tel:123456789`, faIcon: 'fa-regular fa-bell'},
+                              {label: `contact@foxyagency.com`, href: `mailto:foxy@agency.com`, faIcon: 'fa-regular fa-envelope'},
                           ]"
                           :displayLinksAsButtons="false"/>
         </FooterBlock>

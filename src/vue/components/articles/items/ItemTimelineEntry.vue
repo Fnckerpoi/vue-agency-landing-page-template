@@ -20,9 +20,9 @@
 
                 <!-- Date -->
                 <span v-if="date"
-                      class="badge bg-light text-dark text-2 mb-2 mb-xxl-3 mt-1">
-                    <i class="fa-regular fa-calendar me-2"/>
-                    <span v-html="date"/>
+                      class="badge bg-transparent text-dark text-2 mb-2 mb-xxl-3 mt-1 px-0">
+                    <i class="fa-regular fa-calendar me-2 ms-1"/>
+                    <span v-html="date" class="me-1"/>
                 </span>
             </div>
 

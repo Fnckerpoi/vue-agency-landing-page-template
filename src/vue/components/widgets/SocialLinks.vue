@@ -58,6 +58,12 @@ const classList = computed(() => {
     width: calc($font-size * 2.4);
     height: calc($font-size * 2.4);
 
+    @include media-breakpoint-down(xl) {
+        font-size: $md-down-font-size;
+        width: calc($md-down-font-size * 2.65);
+        height: calc($md-down-font-size * 2.65);
+    }
+
     @include media-breakpoint-down(md) {
         font-size: $md-down-font-size;
         width: calc($md-down-font-size * 2.4);
