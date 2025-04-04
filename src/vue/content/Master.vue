@@ -50,7 +50,7 @@
         <FooterBlock :darken="true"
                      :row="false">
             <FooterCopyright holder="Ryan Balieiro"
-                             url="https://ryanbalieiro.com"
+                             url="https://github.com/ryanbalieiro"
                              license="Distributed Under the MIT License"/>
         </FooterBlock>
     </Footer>

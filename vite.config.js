@@ -5,4 +5,11 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   base: '/vue-agency-landing-page-template/',
   plugins: [vue()],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        silenceDeprecations: ["mixed-decls", "color-functions", "global-builtin", "import"],
+      },
+    },
+  },
 })
