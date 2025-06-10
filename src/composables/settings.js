@@ -16,7 +16,7 @@ export function useSettings() {
         return {
             publicKey: "tzObcsmOwHvPy6Rhp",
             serviceId: "service_4h8g7vb",
-            templateId: "template_kplo17d"
+            templateId: "template_react"
         }
     }
 

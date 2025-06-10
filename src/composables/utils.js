@@ -81,6 +81,15 @@ export function useUtils() {
         return title.replace(/\*(.*?)\*/g, `<span class="${titleClass}">$1</span>`)
     }
 
+    /**
+     * Returns the absolute location of the current page.
+     * @return {String}
+     */
+    const getAbsoluteLocation = () => {
+        const { protocol, host, pathname, search, hash } = window.location
+        return `${protocol}//${host}${pathname}${search}${hash}`
+    }
+
     return {
         BOOTSTRAP_BREAKPOINTS,
         clamp,
@@ -88,6 +97,7 @@ export function useUtils() {
         isStringAnImageUrl,
         isTouchDevice,
         isValidEmail,
-        parseCustomText
+        parseCustomText,
+        getAbsoluteLocation
     }
 }

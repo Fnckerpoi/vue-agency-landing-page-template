@@ -4,8 +4,10 @@
  */
 import emailjs from "@emailjs/browser"
 import {useSettings} from "/src/composables/settings.js"
+import {useUtils} from "/src/composables/utils.js"
 
 const settings = useSettings()
+const utils = useUtils()
 
 export const useEmails = () => {
     /**
@@ -25,10 +27,14 @@ export const useEmails = () => {
      */
     const sendContact = async (fromName, fromEmail, customSubject, message) => {
         const params = {
+            name: fromName,
             from_name: fromName,
+            email: fromEmail,
             from_email: fromEmail,
             custom_subject: customSubject,
-            message: message
+            message: message,
+            custom_source: utils.getAbsoluteLocation(),
+            custom_source_name: "Foxy Agency"
         }
 
         const credentials = settings.getCredentialsForEmailJS()
