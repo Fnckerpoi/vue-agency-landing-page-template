@@ -105,6 +105,7 @@ header.foxy-header {
     h1.heading {
         color:$white;
         text-transform: uppercase;
+        text-align: center;
         font-weight: 700;
         font-size: calc(var(--logo-proportion)/6);
         padding: calc(var(--logo-proportion)/8) 0 calc(var(--logo-proportion)/180);
