@@ -11,9 +11,9 @@
         <FooterBlock :darken="false"
                      :row="true">
             <FooterColumn title="About"
-                          faIcon="fa-solid fa-pen-to-square me-1 d-none d-md-inline"
+                          faIcon="fa-brands fa-font-awesome me-2"
                           :description="[
-                              `This template is maintained by Ryan Balieiro and is based on the <a href='https://getbootstrap.com/'>Bootstrap</a> framework and the <a href='https://vuejs.org/'>Vue</a> framework.`
+                              `This template is maintained by Ryan Balieiro and is based on the <a href='https://vuejs.org/'>Vue</a> framework and the <a href='https://getbootstrap.com/'>Bootstrap</a> framework.`
                           ]"
                           :links="[
                               {label: `Privacy Policy`, href: `/privacy-policy`, faIcon: null},
@@ -27,9 +27,9 @@
                           :description="[
                           ]"
                           :links="[
-                              {label: `Twitter`, href: `https://twitter.com`, faIcon:`fa-brands fa-twitter`},
-                              {label: `TikTok`, href: `https://tiktok.com`, faIcon:`fa-brands fa-tiktok`},
                               {label: `Linkedin`, href: `https://linkedin.com`, faIcon:`fa-brands fa-linkedin`},
+                              {label: `Twitter`, href: `https://x.com`, faIcon:`fa-brands fa-x-twitter`},
+                              {label: `TikTok`, href: `https://tiktok.com`, faIcon:`fa-brands fa-tiktok`},
                               {label: `Spotify`, href: `https://spotify.com`, faIcon:`fa-brands fa-spotify`},
                           ]"
                           :displayLinksAsButtons="true"/>

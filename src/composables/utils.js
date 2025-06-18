@@ -90,6 +90,15 @@ export function useUtils() {
         return `${protocol}//${host}${pathname}${search}${hash}`
     }
 
+    /**
+     * @return {string}
+     */
+    const getRootLocation = () => {
+        const { protocol, host, pathname } = window.location
+        const path = `${protocol}//${host}${pathname}`
+        return path.endsWith('/') ? path : `${path}/`
+    }
+
     return {
         BOOTSTRAP_BREAKPOINTS,
         clamp,
@@ -98,6 +107,7 @@ export function useUtils() {
         isTouchDevice,
         isValidEmail,
         parseCustomText,
-        getAbsoluteLocation
+        getAbsoluteLocation,
+        getRootLocation
     }
 }
