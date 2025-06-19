@@ -41,7 +41,7 @@
                               `Cupertino – CA 01235`
                           ]"
                           :links="[
-                              {label: `(555) 555-1234`, href: `tel:123456789`, faIcon: 'fa-regular fa-bell'},
+                              {label: `(555) 555-1234`, href: `tel:123456789`, faIcon: 'pi pi-phone'},
                               {label: `contact@foxyagency.com`, href: `mailto:foxy@agency.com`, faIcon: 'fa-regular fa-envelope'},
                           ]"
                           :displayLinksAsButtons="false"/>

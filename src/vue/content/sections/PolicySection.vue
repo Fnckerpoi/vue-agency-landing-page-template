@@ -16,7 +16,7 @@
                               ]"/>
 
             <ArticleParagraph title="Collected Information"
-                              faIcon="fa-solid fa-database"
+                              faIcon="pi pi-database"
                               :description="[
                                   `The information that you voluntarily provide may be collected and stored when Foxy is accessed. This may include image files saved on your device storage, usage information such as preferences, purchase history, and/or session duration.`,
                                   `Furthermore, if your information is shared online, for example, by participating in leaderboards, any activity performed with other users will be considered public.`,
@@ -25,14 +25,14 @@
                               ]"/>
 
             <ArticleParagraph title="Cookies"
-                              faIcon="fa-solid fa-cookie-bite"
+                              faIcon="pi pi-file"
                               :description="[
                                   `A cookie is a small data file that is stored on your device's hard disk. It allows the application to quickly identify your device and retrieve your user information and preferences, such as your username or the list of items you've purchased.`,
                                   `All the information contained in a cookie may be linked to your personal information, and this data can be used to save your preferences, provide recommendations based on your interests, and improve the application's overall usability. If you wish to do so, you can disable cookies at any time.`
                               ]"/>
 
             <ArticleParagraph title="Security"
-                              faIcon="fa-solid fa-lock"
+                              faIcon="pi pi-lock"
                               :description="[
                                   `The security of your personal information is taken seriously, and reasonable technical and organizational measures have been implemented to protect it from accidental loss, unauthorized access, alteration, or disclosure.`,
                                   `However, it cannot be guaranteed that unauthorized third parties will never be able to breach these measures or use your personal information for improper purposes. It is important to note that email and messaging systems are not considered secure, so it's advised not to share personal information through these mediums.`,
@@ -40,7 +40,7 @@
                               ]"/>
 
             <ArticleParagraph title="Links"
-                              faIcon="fa-solid fa-link"
+                              faIcon="pi pi-link"
                               :description="[
                                   `The application may feature links to other websites. Please note that just because the application links to a website, presents a banner ad, or displays other types of advertisements, it does not imply that it endorses or authorizes that third-party service. Nor is it a representation of any sort of affiliation with that third party.`,
                                   `It should be made clear that the privacy policies of other websites that may be accessed from Foxy are not our responsibility. Therefore, it is highly recommended that the privacy policies of such websites or apps be read carefully before exiting the application.`
