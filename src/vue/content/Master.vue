@@ -1,7 +1,7 @@
 <template>
     <!-- Navigation -->
-    <Navigation logo="images/logo/agency-logo-small.png"
-                label="*Foxy* Template"/>
+    <Navigation logo="images/logo/paokalogo_white.png"
+                label="*Pao*Ka"/>
 
     <!-- Content Display -->
     <router-view/>

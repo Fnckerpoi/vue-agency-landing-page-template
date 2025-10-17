@@ -15,8 +15,7 @@
              :class="{'foxy-timeline-panel-inverted': inverted}">
             <div class="heading">
                 <!-- Title -->
-                <h3 class="mb-1"
-                    v-html="parsedTitle"/>
+                <h3 class="mb-1" v-html="parsedTitle"/>
 
                 <!-- Date -->
                 <span v-if="date"

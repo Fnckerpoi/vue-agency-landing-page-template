@@ -58,9 +58,9 @@ div.image-wrapper, div.description-wrapper {
 }
 
 div.image-wrapper-view {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
+    width: 80%;
+    height: 80%;
+    margin: auto auto;
 }
 
 div.description-wrapper {

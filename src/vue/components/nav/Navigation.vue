@@ -32,7 +32,7 @@ const shouldDisplayInPageNavBar = computed(() => {
     const routeInfo = router.getRoutes().find(r => r.name === route.name)
     if(!routeInfo || !routeInfo.props || !routeInfo.props.default)
         return true
-
+    
     return routeInfo.props.default['inPageNavbar']
 })
 </script>

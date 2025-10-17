@@ -1,8 +1,8 @@
 <template>
-    <!-- Main Content -->
+    <!-- 主要内容 -->
     <slot v-if="shouldSlot"/>
 
-    <!-- Modals -->
+    <!-- 莫代尔 -->
     <ProjectModal :project="projectModalTarget"
                   @close="_onProjectModalClosed"/>
 </template>
@@ -31,11 +31,12 @@ const shouldSlot = computed(() => {
 })
 
 /**
- * @description This hook can be used to report a visit to an external analytics service.
- * Here, you can integrate Google Analytics, Mixpanel, or your own custom analytics implementation.
+ * @description 该挂钩可用于报告对外部分析服务的访问。
+ *在这里，您可以集成 Google Analytics、Mixpanel 或您自己的自定义分析实施。
  */
 onMounted(() => {
-    // replace the implementation below with your own analytics service...
+    // 用您自己的分析服务替换下面的实现...
+
     fetch("https://ryanbalieiro.com/api/analytics/mock", {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},

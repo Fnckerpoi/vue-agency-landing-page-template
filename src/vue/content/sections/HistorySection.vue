@@ -1,19 +1,19 @@
 <template>
     <!-- Services Section -->
-    <PageSection variant="default"
+    <PageSection variant="promo"
                  :id="props.id">
         <!-- Title -->
-        <PageSectionHeader title="Our *History*"
-                           subtitle="Unlocking the secrets of our past!"/>
+        <PageSectionHeader title="*曾经我们走过*"
+                           subtitle="这里有我们的一切"/>
 
         <!-- Content -->
         <PageSectionContent>
             <ArticleTimeline>
-                <ItemTimelineEntry title="Our Founding"
-                                   dateStart="2010"
+                <ItemTimelineEntry title="PaoKa成立"
+                                   dateStart="2023年4月"
                                    dateEnd=""
                                    image="images/history/history-1.png"
-                                   description="Founded in 2010, our software agency began with a small team, driven by a passion for technology and innovation, aiming to deliver exceptional digital solutions. We laid the foundation for future success."
+                                   description="1111"
                                    :inverted="true"/>
 
                 <ItemTimelineEntry title="Rapid Growth and Expansion"

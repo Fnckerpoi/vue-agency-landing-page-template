@@ -1,36 +1,39 @@
-/** Font Awesome webfonts path **/
+/**Font Awesome 网络字体路径 **/
 $fa-font-path:"@fortawesome/fontawesome-free/webfonts";
 
-/** Overriding Bootstrap's contrast ratio. **/
+/**覆盖 Bootstrap 的对比度。 **/
 $min-contrast-ratio: 1.5 !default;
 
-/** Typography **/
+/**版式 **/
 $font-family-base: "Saira", sans-serif;
 $headings-font-family: "Patua One", sans-serif;
 
-/** Bootstrap Colors **/
-$primary: #ff5900;
-$dark: #212529;
-$success: #038600;
-$light: #fcfcfc;
+/**引导颜色 **/
+$primary: #ffffff;
+$myPrimary: #E3DFC9;
+$dark: #585757b2;
+$success: #dd177a;
+$light: #d8d8d8;
 $white: white;
 
-/** General **/
-$background-color: #fefefe;
+
+/**一般的 **/
+$background-color: #ffffff;
 $nav-background-color: $dark;
 $footer-bg-color: $dark;
 $footer-bg-highlight-color: darken($dark, 1%);
 
-/** Dimensions **/
+/**方面 **/
 $navbar-height: 71px;
 
-/** Texts **/
+/**文字 **/
 $headings-color: $dark;
 $text-normal: black;
-$text-normal-contrast: white;
-$text-muted: #757575;
+$text-normal-contrast: rgba(158, 156, 156, 0.822);
+$text-muted: #999999;
+$text-myIcon : #43ec003d;
 
-/** Light Shades **/
+/**浅色调 **/
 $light-1: #f8f9fa;
 $light-2: #e9ecef;
 $light-3: #dee2e6;
@@ -49,7 +52,7 @@ $light-shades-palette: (
     $light-7,
 );
 
-/** Typography - Texts Breakpoints **/
+/**版式 -文本断点 **/
 $texts-breakpoint-multipliers: (
     xxxl: 1,
     xxl: 0.95,
@@ -59,7 +62,7 @@ $texts-breakpoint-multipliers: (
     sm: 0.85
 );
 
-/** Typography - Headings Breakpoints **/
+/**版式 -标题断点 **/
 $headings-breakpoint-multipliers: (
     xxxl: 1,
     xxl: 0.95,
@@ -69,7 +72,7 @@ $headings-breakpoint-multipliers: (
     sm: 0.8
 );
 
-/** Typography - Headings Base Sizes **/
+/**版式 -标题基本尺寸 **/
 $headings-base-sizes: (
     h1: (font-size: 3rem),
     h2: (font-size: 2.5rem),

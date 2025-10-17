@@ -1,5 +1,6 @@
 <template>
     <div class="foxy-section-header">
+        <!-- 之所以用v-html是因为它将内容接收能够支持富文本、Markdown 渲染、换行显示 -->
         <h1 class="foxy-section-header-title" v-html="parsedTitle"/>
         <h5 class="foxy-section-header-subtitle pt-1" v-html="parsedSubtitle"/>
     </div>

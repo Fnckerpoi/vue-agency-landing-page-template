@@ -6,7 +6,6 @@
 
         <BackgroundPromo v-if="props.variant === 'promo'"
                          :faded="true"/>
-
         <!-- Container -->
         <div class="container-xxl">
             <slot/>
@@ -54,7 +53,7 @@ section.foxy-section {
 }
 
 section.foxy-section-primary {
-    background-color: lighten($primary, 42%);
+    background-color: lighten($myPrimary, 0%);
 }
 
 section.foxy-section-dark {

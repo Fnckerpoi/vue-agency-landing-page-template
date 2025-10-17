@@ -1,5 +1,5 @@
 <template>
-    <div class="foxy-item-feature col-12 col-md-6 col-lg-4">
+    <div class="foxy-item-feature col-12 col-md-6 col-lg-3">
         <div class="foxy-item-feature-content mb-lg-4">
             <div class="foxy-item-feature-icon-wrapper">
                 <CircleIcon :fa-icon="faIcon"/>

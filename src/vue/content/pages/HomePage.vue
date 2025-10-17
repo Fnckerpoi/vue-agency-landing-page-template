@@ -20,9 +20,9 @@ import TeamSection from "/src/vue/content/sections/TeamSection.vue"
 
 const sections = [
     new SectionInfo('hero',         HeroSection,            null,           null),
-    new SectionInfo('about',        AboutSection,           'About',        'fa-solid fa-file'),
-    new SectionInfo('services',     ServicesSection,        'Services',     'fa-solid fa-wrench'),
-    new SectionInfo('history',      HistorySection,         'History',      'fa-solid fa-clock'),
+    new SectionInfo('about',        AboutSection,           '关于我们',        'fa-solid fa-file'),
+    new SectionInfo('services',     ServicesSection,        '拥有',     'fa-solid fa-wrench'),
+    new SectionInfo('history',      HistorySection,         '曾经的经历',      'fa-solid fa-clock'),
     new SectionInfo('featured',     FeaturedProjectSection, 'Zork',         'fa-solid fa-bolt'),
     new SectionInfo('portfolio',    PortfolioSection,       'Portfolio',    'fa-solid fa-camera'),
     new SectionInfo('team',         TeamSection,            'Team',         'fa-solid fa-users'),

@@ -3,35 +3,28 @@
     <PageSection variant="primary"
                  :id="props.id">
         <!-- Title -->
-        <PageSectionHeader title="Our *Services*"
-                           subtitle="This section can be used to describe what you offer!"/>
+        <PageSectionHeader title="这里（社区）有*什么*？"
+                           subtitle="Like a chill coffee shop"/>
 
         <!-- Content -->
         <PageSectionContent>
             <ArticleFeatures>
-                <ItemFeature title="Vue3"
-                             fa-icon="fa-brands fa-vuejs"
-                             description="This template is built using the Vue3 JavaScript framework, providing a modern and efficient development experience."/>
+                <ItemFeature title="每日运动打卡连胜抽咖啡"
+                             fa-icon="fa-solid fa-mug-hot"
+                             description=""/>
 
-                <ItemFeature title="Responsive Design"
-                             fa-icon="fa-solid fa-laptop"
-                             description="This template is designed to adapt seamlessly to various screen sizes, providing a consistent user experience across devices."/>
+                <ItemFeature title="运动补贴计划"
+                             fa-icon="fa-regular fa-star"
+                             description=""/>
 
-                <ItemFeature title="Minimalist"
-                             fa-icon="fa-solid fa-wand-magic"
-                             description="This template features a clean and simple design, with a focus on essential elements, resulting in a modern and elegant look."/>
+                <ItemFeature title="全球陌生跑友每天给你一封来自他乡的明信片"
+                             fa-icon="fa-solid fa-photo-film"
+                             description=""/>
 
-                <ItemFeature title="Fully Customizable"
-                             fa-icon="fa-solid fa-hand-sparkles"
-                             description="This template can be easily customized to match your brand's visual identity and requirements, giving you full control over the design and functionality."/>
+                <ItemFeature title="在这里我们是一群人，一起走"
+                             fa-icon="fa-brands fa-gratipay"
+                             description=""/>
 
-                <ItemFeature title="Open Source"
-                             fa-icon="fa-solid fa-code"
-                             description="This template is open-source, meaning the code is publicly accessible and can be modified or redistributed without restrictions."/>
-
-                <ItemFeature title="Lightweight"
-                             fa-icon="fa-solid fa-feather"
-                             description="This template is optimized for performance and speed, with a minimal codebase and minimal dependencies, resulting in a faster load time and improved user experience."/>
             </ArticleFeatures>
         </PageSectionContent>
     </PageSection>

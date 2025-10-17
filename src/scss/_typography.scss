@@ -33,6 +33,10 @@ $texts-base-sizes: (
 }
 
 .text {
+    &-myIcon{
+        color: $text-myIcon!important;
+    }
+    
     &-muted {
         color: $text-muted!important;
     }

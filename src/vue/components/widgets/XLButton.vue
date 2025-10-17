@@ -1,5 +1,5 @@
 <template>
-    <button class="btn btn-primary btn-xl"
+    <button class="btn btn-success btn-xl"
             :type="props.type || 'button'"
             :class="props.class">
         <i class="me-2" :class="props.icon"/>

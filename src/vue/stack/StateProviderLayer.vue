@@ -9,7 +9,7 @@ import {useSettings} from "/src/composables/settings.js"
 const settings = useSettings()
 
 /**
- * Global state CONSTANTS
+ *Global state CONSTANTS
  **/
 const loaderEnabled = settings.getLoaderEnabled()
 

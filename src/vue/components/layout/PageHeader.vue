@@ -1,8 +1,6 @@
 <template>
-    <header :id="id"
-            class="foxy-header">
+    <header :id="id" class="foxy-header">
         <BackgroundPromo :faded="false"/>
-
         <!-- Content -->
         <div class="container-xxl">
             <article class="foxy-hero-header">
@@ -15,7 +13,7 @@
                 <!-- Texts -->
                 <h1 class="heading"
                     v-html="parsedTitle"/>
-                <h4 class="subheading"
+                <h5 class="subheading"
                     v-html="parsedSubtitle"/>
 
                 <!-- Button -->
@@ -111,7 +109,7 @@ header.foxy-header {
         padding: calc(var(--logo-proportion)/8) 0 calc(var(--logo-proportion)/180);
     }
 
-    h4.subheading {
+    h5.subheading {
         font-family: $font-family-base;
         color: $light-5;
 

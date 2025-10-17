@@ -1,11 +1,11 @@
 <template>
-    <!-- Handles the global state -->
+    <!-- 处理全局状态 -->
     <StateProviderLayer>
-        <!-- Handles the UI feedbacks such as loaders and activity spinners -->
+        <!-- 处理 UI 反馈，例如加载程序和活动旋转器 -->
         <FeedbacksLayer>
-            <!-- Handles routes/modals -->
+            <!-- 处理路线/模式 -->
             <ContentLayer>
-                <!-- App Content -->
+                <!-- 应用内容 -->
                 <Master/>
             </ContentLayer>
         </FeedbacksLayer>
