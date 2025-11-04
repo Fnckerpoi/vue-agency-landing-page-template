@@ -1,14 +1,14 @@
 <template>
     <article class="foxy-info-block-article">
         <div class="image-wrapper">
-            <ImageView :src="image"
+            <ImageView v-for=" item in image " :src="item"
                        alt="Logo"
                        class="image-wrapper-view"/>
         </div>
 
         <div class="description-wrapper">
             <p v-for="paragraph in parsedParagraphs"
-               class="text-4"
+               class="text-5"
                v-html="paragraph"/>
         </div>
     </article>
@@ -19,7 +19,7 @@ import ImageView from "/src/vue/components/generic/ImageView.vue"
 import {computed} from "vue"
 
 const props = defineProps({
-    image: String,
+    image: Array,
     paragraphs: Array
 })
 
@@ -37,7 +37,7 @@ article.foxy-info-block-article {
     width: 100%;
 
     @include media-breakpoint-down(lg) {
-        flex-direction: column;
+        flex-direction: row;
     }
 }
 
@@ -47,20 +47,20 @@ div.image-wrapper {
         xxl:  (min-width: min(33vw, 300px), margin-right: 3.5rem),
         lg:   (min-width: 0, margin-right:0, margin-bottom:2rem, max-width:40vw, max-height:200px)
     ));
-
-    display: flex;
+    display: inline-block;
     aspect-ratio: 1/1;
 }
 
 div.image-wrapper, div.description-wrapper {
-    align-self: center;
-    text-align: justify;
+    // align-self:center;
+    text-align: center; 
+    width: 450px;
 }
 
 div.image-wrapper-view {
-    width: 80%;
-    height: 80%;
-    margin: auto auto;
+    width: 60%;
+    height: 100%;
+    margin: 5% auto;
 }
 
 div.description-wrapper {
